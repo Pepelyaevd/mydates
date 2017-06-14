@@ -1,0 +1,64 @@
+header,
+main,
+footer {
+  padding-left: 240px;
+}
+
+body {
+  background: white;
+  max-width:1000px; 
+  margin-left:auto; 
+  margin-right:auto
+}
+
+.side-nav.fixed {
+    left: auto;
+	font-weight:normal;
+}
+.side-nav a {
+	height:50px;
+	line-height:50px;
+}
+nav .button-collapse i {
+	margin-left:10px;
+}
+
+
+.username {
+	font-size:20px;
+	margin:10px 0 10px 30px;	
+	font-weight:bold;
+	
+}
+
+.divider {
+	margin:0 15px 20px 15px;
+	
+	
+}
+
+
+.footer-copyright .container,
+.footer-copyright .container a {
+  color: #BCC2E2;
+}
+
+.fab-tip {
+  position: fixed;
+  right: 85px;
+  padding: 0px 0.5rem;
+  text-align: right;
+  background-color: #323232;
+  border-radius: 2px;
+  color: #FFF;
+  width: auto;
+}
+
+
+@media only screen and (max-width: 992px) {
+  header,
+  main,
+  footer {
+    padding-left: 0;
+  }
+}
