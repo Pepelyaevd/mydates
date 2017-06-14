@@ -19,8 +19,9 @@ body {
 	height:50px;
 	line-height:50px;
 }
-nav .button-collapse i {
-	margin-left:10px;
+nav .button-collapse {
+	position: absolute;
+    left: 10px;
 }
 
 
