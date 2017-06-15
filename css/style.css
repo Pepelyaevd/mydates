@@ -52,7 +52,7 @@ nav .button-collapse {
 
 .username {
 	font-size:20px;
-	margin:10px 0 0 30px;	
+	margin:0 0 0 30px;	
 	font-weight:bold;
 	
 }
@@ -98,6 +98,7 @@ footer {
   }
   .side-nav.fixed {    
 	top:0;
+	height:100%;
   }
   .nav-wrapper span {
 	margin-left:60px;
