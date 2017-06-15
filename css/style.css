@@ -1,8 +1,7 @@
-header,
-main,
-footer {
+main {
   padding-left: 240px;
 }
+
 
 body {
   background: white;
@@ -11,12 +10,21 @@ body {
   margin-right:auto
 }
 
+
+.color {
+	background-color:#00bcd4!important;
+}
+
 main {
 	margin: 0 10px;
 }
 .side-nav.fixed {
     left: auto;
 	font-weight:normal;
+	top:74px;
+	box-shadow: none;
+	height:auto;
+	padding-bottom:10px;
 }
 .side-nav a {
 	height:50px;
@@ -77,9 +85,13 @@ footer {
 }
 
 @media only screen and (max-width: 992px) {
-  header,
-  main,
-  footer {
+  main {
     padding-left: 0;
   }
+  .side-nav.fixed {
+    
+	top:0;
+	
+}
+  
 }
