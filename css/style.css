@@ -1,12 +1,22 @@
+html {
+	height:100%;
+}
+body {
+	min-height:100%;
+	margin:0;
+}
+
 main {
-  padding-left: 240px;
+	padding-left: 240px;
 }
 
 
 .page {
-  max-width:1000px; 
-  margin-left:auto; 
-  margin-right:auto
+	min-height:100%;
+	max-width:1000px; 
+	margin-left:auto; 
+	margin-right:auto;
+	padding:10px;
 }
 
 
@@ -26,6 +36,7 @@ header {
 
 main {
 	margin: 0 10px;
+
 }
 .side-nav.fixed {
     left: auto;
