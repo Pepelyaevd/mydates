@@ -3,16 +3,25 @@ main {
 }
 
 
-body {
-  background: white;
+.page {
   max-width:1000px; 
   margin-left:auto; 
   margin-right:auto
 }
 
 
+
 .color {
 	background-color:#00bcd4!important;
+}
+
+header {
+	margin-bottom:5px;
+	font-size:20px;
+}
+
+.nav-wrapper span {
+	margin-left:60px;
 }
 
 main {
@@ -51,11 +60,7 @@ nav .button-collapse {
 .divider {
 	margin:10px 15px 10px 15px;	
 }
-.nav-wrapper {
-	text-align:center;
-	font-size:20px;
-	
-}
+
 
 .card {
 	margin:10px 0 10px 0;
@@ -80,7 +85,7 @@ nav .button-collapse {
 footer {
 	padding-top:20px;
 	padding-bottom:20px;
-	
+	width:100%;
 	color:white;
 }
 
