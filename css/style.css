@@ -21,7 +21,7 @@ header {
 }
 
 .nav-wrapper span {
-	margin-left:60px;
+	margin-left:20px;
 }
 
 main {
@@ -68,7 +68,10 @@ nav .button-collapse {
 }
 
 .card img{
-
+	width: 100px;
+}
+.card-content p {
+    font-size: 18px;
 }
 
 
@@ -93,10 +96,11 @@ footer {
   main {
     padding-left: 0;
   }
-  .side-nav.fixed {
-    
+  .side-nav.fixed {    
 	top:0;
-	
-}
+  }
+  .nav-wrapper span {
+	margin-left:60px;
+  }
   
 }
