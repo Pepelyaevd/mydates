@@ -76,6 +76,9 @@ nav .button-collapse {
 	margin:10px 0 10px 0;
 	text-align:center;
 }
+.card .card-content {
+	padding: 10px;
+}
 
 .card img{
 	width: 100px;
