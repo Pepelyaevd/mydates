@@ -45,7 +45,9 @@ function createMainPage () {
 }
 function createTablePage () {
 	var container=$('#main');
-	var table=$('<table>').appendTo(container);
+	var undercontainer=$('<div>').addClass('undermain').appendTo(container);
+	$('<h1>').addClass('header').text("Все даты").appendTo(undercontainer);
+	var table=$('<table>').appendTo(undercontainer);
 	var thead=$('<thead>').appendTo(table);
 	var theadtr=$('<tr>').appendTo(thead);
 	$('<td>').text('Имя').appendTo(theadtr);
@@ -73,9 +75,32 @@ function createTablePage () {
 }
 function createNotifyPage () {
 	var container=$('#main');
-	var row=$('<div>').addClass('row').appendTo(container);
-	row.text("asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd 	asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasasdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd");
+	var undercontainer=$('<div>').addClass('undermain').appendTo(container);
 	
+	$('<h1>').addClass('header').text("Уведомления").appendTo(undercontainer);
+	$('<h2>').text("E-mail").appendTo(undercontainer);
+	var mailCheckboxButtons=$('<p>').appendTo(undercontainer);
+	$('<input>').attr("type","checkbox").attr("id","mail1").attr("disabled","disabled").appendTo(mailCheckboxButtons);
+	$('<label>').attr("for","mail1").text("За неделю").appendTo(mailCheckboxButtons);
+	$('<input>').attr("type","checkbox").attr("id","mail2").attr("disabled","disabled").appendTo(mailCheckboxButtons);
+	$('<label>').attr("for","mail2").text("За день").appendTo(mailCheckboxButtons);
+	$('<input>').attr("type","checkbox").attr("id","mail3").appendTo(mailCheckboxButtons);
+	$('<label>').attr("for","mail3").text("В день события").appendTo(mailCheckboxButtons);
+	
+	$('<h2>').text("SMS").appendTo(undercontainer);
+	var smsCheckboxButtons=$('<p>').appendTo(undercontainer);
+	$('<input>').attr("type","checkbox").attr("id","sms1").attr("disabled","disabled").appendTo(smsCheckboxButtons);
+	$('<label>').attr("for","sms1").text("За неделю").appendTo(smsCheckboxButtons);
+	$('<input>').attr("type","checkbox").attr("id","sms2").attr("disabled","disabled").appendTo(smsCheckboxButtons);
+	$('<label>').attr("for","sms2").text("За день").appendTo(smsCheckboxButtons);
+	$('<input>').attr("type","checkbox").attr("id","sms3").attr("disabled","disabled").appendTo(smsCheckboxButtons);
+	$('<label>').attr("for","sms3").text("В день события").appendTo(smsCheckboxButtons);
+		
+	var row=$('<div>').addClass('row').appendTo(undercontainer);	
+	row.text("asdasdasssdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd 	asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasasdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd");
+	
+	var centered = $('<div>').addClass('centered').appendTo(undercontainer);
+	$('<a>').addClass('waves-effect green btn-large').text("Сохранить изменения").appendTo(centered);
 }
 
 $('#mainPageButton').on("click",function(){

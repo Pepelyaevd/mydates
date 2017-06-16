@@ -24,7 +24,14 @@ main {
 .color {
 	background-color:#00bcd4!important;
 }
-
+.green {
+	background-color:#4CAF50!important;
+}
+.centered {
+	text-align:center;
+	margin:25px 0 0 0;
+}
+	
 header {
 	margin-bottom:5px;
 	font-size:20px;
@@ -100,8 +107,9 @@ nav .button-collapse {
 }
 
 .card img{
-	width: 80px;
-	margin-right: 15px;
+	width: 85px;
+    margin-right: 15px;
+    margin-top: 12px;
 }
 
 .card-content p {
@@ -130,6 +138,30 @@ nav .button-collapse {
   border-radius: 2px;
   color: #FFF;
   width: auto;
+}
+
+
+.undermain {
+	color: #444;
+	padding:30px 20px 10px 50px;
+}
+h1 {
+	margin: 10px;
+	font-size:30px;
+	text-align:center;
+}
+h2 {
+	margin:40px 0 0 5px;
+	font-size:24px;
+}
+
+.undermain p {
+	display: grid;
+}
+
+.undermain p label{
+margin: 10px 0;
+font-size:16px;
 }
 
 footer {
