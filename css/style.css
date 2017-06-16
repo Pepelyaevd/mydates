@@ -8,6 +8,7 @@ body {
 
 main {
 	padding-left: 240px;
+	margin: 0 10px;
 }
 
 
@@ -33,10 +34,6 @@ header {
 	margin-left:20px;
 }
 
-main {
-	margin: 0 10px;
-
-}
 .side-nav.fixed {
     left: auto;
 	font-weight:normal;
@@ -45,9 +42,9 @@ main {
 	height:auto;
 	padding-bottom:10px;
 }
-.side-nav a {
+.side-nav.fixed a {
 	height:50px;
-	line-height:50px;
+	line-height:52px;
 }
 
 .side-nav .active{
@@ -61,13 +58,28 @@ nav .button-collapse {
 
 
 .username {
-	font-size:20px;
-	margin:0 0 0 30px;	
-	font-weight:bold;
-	
+	font-size:18px;	
+
+	color: #444; 
+	text-align:center;	
+}
+.username .material-icons {
+	font-size:30px;
+	margin:22px 5px 22px 20px!important;
+	float:left;
+}
+.side-nav.fixed .material-icons {
+	margin:13px 18px 13px 5px!important;
+	float:left;
 }
 
-.divider {
+
+
+.divider1 {
+	margin:0 15px 10px 15px;	
+}
+
+.divider2 {
 	margin:10px 15px 10px 15px;	
 }
 
@@ -83,6 +95,7 @@ nav .button-collapse {
 .card img{
 	width: 80px;
 }
+
 .card-content p {
     font-size: 18px;
 }
@@ -104,6 +117,16 @@ footer {
 	width:100%;
 	color:white;
 }
+.rotate-180 {
+    -webkit-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    transform: rotate(180deg);
+}
+.drag-target {
+	display:none;
+}
 
 @media only screen and (max-width: 992px) {
   main {
@@ -116,5 +139,9 @@ footer {
   .nav-wrapper span {
 	margin-left:60px;
   }
+  
+  .drag-target {
+	display:block;
+	}
   
 }
