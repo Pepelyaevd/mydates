@@ -15,11 +15,7 @@ function clearPage () {
 function createMainPage () {
 	var container=$('#main');
 	var row=$('<div>').addClass('row').appendTo(container);
-	function randomNumber(m, n) {
-		  m = parseInt(m);
-		  n = parseInt(n);
-		  return Math.floor( Math.random() * (n - m + 1) ) + m;
-	}
+	
 
 	function createCard (container) {
 		var col=$('<div>').addClass('col s12 m6').appendTo(container);
@@ -31,6 +27,11 @@ function createMainPage () {
 					$('<p>').text("Иван Иванович Иванов").appendTo(cardText);
 					$('<p>').text("34 года").appendTo(cardText);	
 				var cardimg=$('<div>').appendTo(cardBody);
+					function randomNumber(m, n) {
+						  m = parseInt(m);
+						  n = parseInt(n);
+						  return Math.floor( Math.random() * (n - m + 1) ) + m;
+					}
 					var img = "icons/" + randomNumber(1, 8) + ".png";
 					$('<img>').addClass('responsive-img').attr("src",img).appendTo(cardimg);		
 	}
