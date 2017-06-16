@@ -15,16 +15,24 @@ function clearPage () {
 function createMainPage () {
 	var container=$('#main');
 	var row=$('<div>').addClass('row').appendTo(container);
-	
+	function randomNumber(m, n) {
+		  m = parseInt(m);
+		  n = parseInt(n);
+		  return Math.floor( Math.random() * (n - m + 1) ) + m;
+	}
+
 	function createCard (container) {
-		var col=$('<div>').addClass('col s6 m4').appendTo(container);
+		var col=$('<div>').addClass('col s12 m6').appendTo(container);
 		var card=$('<div>').addClass('card').appendTo(col);
 		var cardContent=$('<div>').addClass('card-content').appendTo(card);
-		$('<img>').addClass('responsive-img').attr("src","icons/cake.png").appendTo(cardContent);
-		$('<br>').appendTo(cardContent);
-		$('<p>').addClass('card-title').text("Сегодня").appendTo(cardContent);
-		$('<p>').text("Иван Иванович Иванов").appendTo(cardContent);
-		$('<p>').text("34 года").appendTo(cardContent);	
+			$('<p>').addClass('card-title').text("Сегодня").appendTo(cardContent);
+			var cardBody=$('<div>').addClass('card-body').appendTo(cardContent);
+				var cardText=$('<div>').addClass('card-text').appendTo(cardBody);
+					$('<p>').text("Иван Иванович Иванов").appendTo(cardText);
+					$('<p>').text("34 года").appendTo(cardText);	
+				var cardimg=$('<div>').appendTo(cardBody);
+					var img = "icons/" + randomNumber(1, 8) + ".png";
+					$('<img>').addClass('responsive-img').attr("src",img).appendTo(cardimg);		
 	}
 	
 	createCard(row);
