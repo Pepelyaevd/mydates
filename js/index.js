@@ -3,7 +3,7 @@ $('.button-collapse').sideNav();
 $('.collapsible').collapsible();
 
 $('select1').material_select();
-
+$('.modaltrigger').leanModal();
 
 
 
@@ -45,9 +45,9 @@ function createMainPage () {
 }
 function createTablePage () {
 	var container=$('#main');
-	var undercontainer=$('<div>').addClass('undermain').appendTo(container);
-	$('<h1>').addClass('header').text("Все даты").appendTo(undercontainer);
-	var table=$('<table>').appendTo(undercontainer);
+	
+	$('<h1>').addClass('header').text("Все даты").appendTo(container);
+	var table=$('<table>').appendTo(container);
 	var thead=$('<thead>').appendTo(table);
 	var theadtr=$('<tr>').appendTo(thead);
 	$('<td>').text('Имя').appendTo(theadtr);
@@ -75,9 +75,9 @@ function createTablePage () {
 }
 function createNotifyPage () {
 	var container=$('#main');
-	var undercontainer=$('<div>').addClass('undermain').appendTo(container);
-	
-	$('<h1>').addClass('header').text("Уведомления").appendTo(undercontainer);
+	$('<h1>').addClass('header').text("Уведомления").appendTo(container);
+	var undercontainer=$('<div>').addClass('undermain').appendTo(container);	
+
 	$('<h2>').text("E-mail").appendTo(undercontainer);
 	var mailCheckboxButtons=$('<p>').appendTo(undercontainer);
 	$('<input>').attr("type","checkbox").attr("id","mail1").attr("disabled","disabled").appendTo(mailCheckboxButtons);
@@ -99,7 +99,7 @@ function createNotifyPage () {
 	var row=$('<div>').addClass('row').appendTo(undercontainer);	
 	row.text("asdasdasssdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd 	asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasasdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd");
 	
-	var centered = $('<div>').addClass('centered').appendTo(undercontainer);
+	var centered = $('<div>').addClass('centered').appendTo(container);
 	$('<a>').addClass('waves-effect green btn-large').text("Сохранить изменения").appendTo(centered);
 }
 
@@ -124,4 +124,5 @@ $('#notifyPageButton').on("click",function(){
 	clearPage();
 	createNotifyPage();
 });
+
 
