@@ -102,6 +102,33 @@ function createNotifyPage () {
 	var centered = $('<div>').addClass('centered').appendTo(container);
 	$('<a>').addClass('waves-effect green btn-large').text("Сохранить изменения").appendTo(centered);
 }
+function createSettingsPage () {
+	var container=$('#main');
+	$('<h1>').addClass('header').text("Настройки").appendTo(container);
+	var collection=$('<ul>').addClass('collection').appendTo(container);
+	var lineName=$('<li>').addClass('collection-item line row').appendTo(collection);
+		$('<div>').addClass('col s5 grey-text darken-1').text("Имя").appendTo(lineName);
+		$('<div>').addClass('col s7').text("Иннокентий").appendTo(lineName);
+	var lineCity=$('<li>').addClass('collection-item line row').appendTo(collection);
+		$('<div>').addClass('col s5 grey-text darken-1').text("Город").appendTo(lineCity);
+		$('<div>').addClass('col s7').text("Москва").appendTo(lineCity);
+	var lineMail=$('<li>').addClass('collection-item line row').appendTo(collection);
+		$('<div>').addClass('col s5 grey-text darken-1').text("E-mail").appendTo(lineMail);
+		$('<div>').addClass('col s7').text("dima123123123@asd.ru").appendTo(lineMail);	
+	var lineTel=$('<li>').addClass('collection-item line row').appendTo(collection);
+		$('<div>').addClass('col s5 grey-text darken-1').text("Телефон").appendTo(lineTel);
+		$('<div>').addClass('col s7').text("+7-123-00-00-00").appendTo(lineTel);	
+	var lineBirthday=$('<li>').addClass('collection-item line row').appendTo(collection);
+		$('<div>').addClass('col s5 grey-text darken-1').text("День рождения").appendTo(lineBirthday);
+		$('<div>').addClass('col s7').text("28 декабря 1980").appendTo(lineBirthday);
+
+		
+	var row=$('<div>').addClass('row').appendTo(container);	
+	row.text("asdasdasssdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd 	asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasasdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd");
+	
+	var centered = $('<div>').addClass('centered').appendTo(container);
+	$('<a>').addClass('waves-effect green btn-large').text("Сохранить изменения").appendTo(centered);
+}
 
 $('#mainPageButton').on("click",function(){
 	$('.button-collapse').sideNav('hide');
@@ -123,6 +150,13 @@ $('#notifyPageButton').on("click",function(){
 	$(this).addClass('active');
 	clearPage();
 	createNotifyPage();
+});
+$('#settingsPageButton').on("click",function(){
+	$('.button-collapse').sideNav('hide');
+	$('#slide-out').find("li.active").removeClass('active');
+	$(this).addClass('active');
+	clearPage();
+	createSettingsPage();
 });
 
 
