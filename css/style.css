@@ -217,7 +217,9 @@ footer {
   .drag-target {
 	display:block;
 	}
-	
+.collection-item.row .col {
+	padding:0!important;
+}
 
   
 }
