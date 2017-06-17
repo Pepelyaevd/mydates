@@ -166,9 +166,14 @@ font-size:16px;
 }
 .collection {
 	border:0 ;
-	margin: 20px 0;
+	margin: 40px 5px 10px 5px;
 }
 
+.collection-item {
+	padding:10px!important;
+	line-height:24px!important;
+	border-bottom:0!important;
+}
 .collection-item .col.s7 {
 	font-size: 15px;
 }

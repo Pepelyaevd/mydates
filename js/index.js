@@ -121,6 +121,9 @@ function createSettingsPage () {
 	var lineBirthday=$('<li>').addClass('collection-item line row').appendTo(collection);
 		$('<div>').addClass('col s5 grey-text darken-1').text("День рождения").appendTo(lineBirthday);
 		$('<div>').addClass('col s7').text("28 декабря 1980").appendTo(lineBirthday);
+	var lineTimezone=$('<li>').addClass('collection-item line row').appendTo(collection);
+		$('<div>').addClass('col s5 grey-text darken-1').text("Часовой пояс").appendTo(lineTimezone);
+		$('<div>').addClass('col s7').text("Москва (+3.00)").appendTo(lineTimezone);
 
 		
 	var row=$('<div>').addClass('row').appendTo(container);	
