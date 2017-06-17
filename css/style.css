@@ -170,7 +170,7 @@ font-size:16px;
 }
 
 .collection-item {
-	padding:10px!important;
+	padding:10px 0!important;
 	line-height:24px!important;
 	border-bottom:0!important;
 }
