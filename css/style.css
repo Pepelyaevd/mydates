@@ -7,7 +7,7 @@ body {
 }
 
 main {
-	padding-left: 240px;
+	padding-left: 250px;
 	margin: 0 10px;
 	color: #444;
 }
@@ -175,7 +175,14 @@ font-size:16px;
 	border-bottom:0!important;
 }
 .collection-item .col.s7 {
+	display:inline-flex;
 	font-size: 15px;
+	cursor:default;
+}
+.collection-item .col.s7 i {
+	margin-left: 5px;
+    font-size: 20px;
+	cursor:default;
 }
 
 footer {

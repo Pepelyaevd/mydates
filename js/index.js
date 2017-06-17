@@ -108,30 +108,34 @@ function createSettingsPage () {
 	var collection=$('<ul>').addClass('collection').appendTo(container);
 	var lineName=$('<li>').addClass('collection-item line row').appendTo(collection);
 		$('<div>').addClass('col s5 grey-text darken-1').text("Имя").appendTo(lineName);
-		$('<div>').addClass('col s7').text("Иннокентий").appendTo(lineName);
+		var lineNameDiv=$('<div>').addClass('col s7').text("Иннокентий").appendTo(lineName);		
+		$('<i>').addClass('material-icons').text("mode_edit").appendTo(lineNameDiv);
 	var lineCity=$('<li>').addClass('collection-item line row').appendTo(collection);
 		$('<div>').addClass('col s5 grey-text darken-1').text("Город").appendTo(lineCity);
-		$('<div>').addClass('col s7').text("Москва").appendTo(lineCity);
+		var lineCityDiv=$('<div>').addClass('col s7').text("Москва").appendTo(lineCity);
+		$('<i>').addClass('material-icons').text("mode_edit").appendTo(lineCityDiv);
 	var lineMail=$('<li>').addClass('collection-item line row').appendTo(collection);
 		$('<div>').addClass('col s5 grey-text darken-1').text("E-mail").appendTo(lineMail);
-		$('<div>').addClass('col s7').text("dima123123123@asd.ru").appendTo(lineMail);	
+		var lineMailDiv=$('<div>').addClass('col s7').text("dima123123123@asd.ru").appendTo(lineMail);
+		$('<i>').addClass('material-icons').text("mode_edit").appendTo(lineMailDiv);
 	var lineTel=$('<li>').addClass('collection-item line row').appendTo(collection);
 		$('<div>').addClass('col s5 grey-text darken-1').text("Телефон").appendTo(lineTel);
-		$('<div>').addClass('col s7').text("+7-123-00-00-00").appendTo(lineTel);	
+		var lineTelDiv=$('<div>').addClass('col s7').text("+7-123-00-00-00").appendTo(lineTel);	
+		$('<i>').addClass('material-icons').text("mode_edit").appendTo(lineTelDiv);
 	var lineBirthday=$('<li>').addClass('collection-item line row').appendTo(collection);
 		$('<div>').addClass('col s5 grey-text darken-1').text("День рождения").appendTo(lineBirthday);
-		$('<div>').addClass('col s7').text("28 декабря 1980").appendTo(lineBirthday);
+		var lineBirthdayDiv=$('<div>').addClass('col s7').text("28 декабря 1980").appendTo(lineBirthday);
+		$('<i>').addClass('material-icons').text("mode_edit").appendTo(lineBirthdayDiv);
 	var lineTimezone=$('<li>').addClass('collection-item line row').appendTo(collection);
 		$('<div>').addClass('col s5 grey-text darken-1').text("Часовой пояс").appendTo(lineTimezone);
-		$('<div>').addClass('col s7').text("Москва (+3.00)").appendTo(lineTimezone);
+		var lineTimezoneDiv=$('<div>').addClass('col s7').text("Москва (+3.00)").appendTo(lineTimezone);
+		$('<i>').addClass('material-icons').text("mode_edit").appendTo(lineTimezoneDiv);
 
 		
 	var row=$('<div>').addClass('row').appendTo(container);	
 	row.text("asdasdasssdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd 	asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasasdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd asdasdasdasdasd");
 	
-	var centered = $('<div>').addClass('centered').appendTo(container);
-	$('<a>').addClass('waves-effect green btn-large').text("Сохранить изменения").appendTo(centered);
-}
+	}
 
 $('#mainPageButton').on("click",function(){
 	$('.button-collapse').sideNav('hide');
