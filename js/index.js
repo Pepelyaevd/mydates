@@ -157,7 +157,7 @@ $('#mainPageButton').on("click",function(){
 		$(this).addClass('active');
 		clearPage();
 		preLoader();
-		setTimeout(createMainPage, 2000);
+		setTimeout(createMainPage, 1000);
 		currentPage="MainPage";
 	}
 });
@@ -168,7 +168,7 @@ $('#tablePageButton').on("click",function(){
 		$(this).addClass('active');
 		clearPage();
 		preLoader();
-		setTimeout(createTablePage, 2000);
+		setTimeout(createTablePage, 1000);
 		currentPage="TablePage";
 	}
 });
@@ -179,7 +179,7 @@ $('#notifyPageButton').on("click",function(){
 		$(this).addClass('active');
 		clearPage();
 		preLoader();
-		setTimeout(createNotifyPage, 2000);
+		setTimeout(createNotifyPage, 1000);
 		currentPage="NotifyPage";
 	}
 });
@@ -190,7 +190,7 @@ $('#settingsPageButton').on("click",function(){
 		$(this).addClass('active');
 		clearPage();
 		preLoader();
-		setTimeout(createSettingsPage, 2000);
+		setTimeout(createSettingsPage, 1000);
 		currentPage="SettingsPage";
 	}
 });

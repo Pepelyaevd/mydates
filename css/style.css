@@ -213,7 +213,9 @@ footer {
 @media only screen and (max-width: 992px) {
   main {
     padding-left: 0;
+	
   }
+
   .side-nav.fixed {    
 	top:0;
 	height:100%;
@@ -227,7 +229,14 @@ footer {
 	}
 .collection-item.row .col {
 	padding:0!important;
+	}  
 }
 
-  
-}
+@media only screen and (max-width: 600px) {
+
+	#page {		
+		min-height: calc(100vh - 142px)
+	}
+	
+	
+  }
