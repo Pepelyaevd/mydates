@@ -120,7 +120,7 @@ function createNotifyPage () {
 		//events
 		$("#mail3").click(function(){
 			//toserver -> callback
-			Materialize.toast('I am a toast!', 3000)
+			Materialize.toast('Изменения сохранены.', 3000)
 		});
 		
 		
@@ -133,11 +133,11 @@ function createSettingsPage () {
 		var collection=$('<ul>').addClass('collection').appendTo(container);
 		var lineName=$('<li>').addClass('collection-item line row').appendTo(collection);
 			$('<div>').addClass('col s5 grey-text darken-1').text("Имя").appendTo(lineName);
-			var lineNameDiv=$('<div>').addClass('col s7').text("Иннокентий").appendTo(lineName);		
+			var lineNameDiv=$('<div>').addClass('col s7').attr("href","#nameModal").text("Иннокентий").appendTo(lineName);	//	
 			$('<i>').addClass('material-icons').text("mode_edit").appendTo(lineNameDiv);
 		var lineCity=$('<li>').addClass('collection-item line row').appendTo(collection);
 			$('<div>').addClass('col s5 grey-text darken-1').text("Город").appendTo(lineCity);
-			var lineCityDiv=$('<div>').addClass('col s7').text("Москва").appendTo(lineCity);
+			var lineCityDiv=$('<div>').addClass('col s7').attr("href","#cityModal").text("Москва").appendTo(lineCity);
 			$('<i>').addClass('material-icons').text("mode_edit").appendTo(lineCityDiv);
 		var lineMail=$('<li>').addClass('collection-item line row').appendTo(collection);
 			$('<div>').addClass('col s5 grey-text darken-1').text("E-mail").appendTo(lineMail);
@@ -155,6 +155,43 @@ function createSettingsPage () {
 			$('<div>').addClass('col s5 grey-text darken-1').text("Часовой пояс").appendTo(lineTimezone);
 			var lineTimezoneDiv=$('<div>').addClass('col s7').text("Москва (+3.00)").appendTo(lineTimezone);
 			$('<i>').addClass('material-icons').text("mode_edit").appendTo(lineTimezoneDiv);
+			
+		//modals
+		//name
+		var nameModalDiv=$('<div>').addClass('modal').attr("id","nameModal").appendTo(container);
+			var modalDivcontent=$('<div>').addClass('modal-content').appendTo(nameModalDiv);
+				$('<h4>').text("Изменить имя").appendTo(modalDivcontent);
+				var modalDivcontentInput=$('<div>').addClass('input-field').attr("type","text").attr("value","innnput").appendTo(modalDivcontent);
+				$('<input>').addClass('input').attr("type","text").attr("value","innnput").appendTo(modalDivcontent);
+			var modalDivFooter=$('<div>').addClass('modal-footer').appendTo(nameModalDiv);
+				var modalyes=$('<a>').addClass("modal-action modal-close waves-effect waves-green btn-flat").text("OK").appendTo(modalDivFooter);
+			
+		modalyes.click(function(){
+			//toserver -> callback
+			Materialize.toast('Изменения сохранены.', 3000)
+		});
+		
+		//city
+		var cityModalDiv=$('<div>').addClass('modal').attr("id","cityModal").appendTo(container);
+			var modalDivcontent=$('<div>').addClass('modal-content').appendTo(cityModalDiv);
+				$('<h4>').text("Изменить город").appendTo(modalDivcontent);
+				var modalDivcontentInput=$('<div>').addClass('input-field').appendTo(modalDivcontent);
+				$('<input>').addClass('input').attr("type","text").attr("value","Perm").appendTo(modalDivcontent);
+			var modalDivFooter=$('<div>').addClass('modal-footer').appendTo(cityModalDiv);
+				var modalyes=$('<a>').addClass("modal-action modal-close waves-effect waves-green btn-flat").text("OK").appendTo(modalDivFooter);
+		
+		modalyes.click(function(){
+			//toserver -> callback
+			Materialize.toast('Изменения сохранены.', 3000)
+		});			
+		
+		//events
+		
+		lineNameDiv.leanModal();
+		lineCityDiv.leanModal();
+		
+		
+		
 }
 
 $('#mainPageButton').on("click",function(){
