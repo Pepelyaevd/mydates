@@ -165,6 +165,7 @@ h2 {
 .undermain p label{
 margin: 10px 0;
 font-size:16px;
+max-width:200px;
 }
 .collection {
 	border:0 ;
