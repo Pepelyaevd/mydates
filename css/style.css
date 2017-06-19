@@ -207,8 +207,8 @@ footer {
 }
 
 .preloader-wrapper {
-	margin-left:45%;
-	margin-top:40%;	
+	margin-left:calc(50% - 32px);
+	margin-top:250px;	
 	}
 
 @media only screen and (max-width: 992px) {

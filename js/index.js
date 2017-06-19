@@ -6,7 +6,7 @@ $('select1').material_select();
 $('.modaltrigger').leanModal();
 
 
-
+var currentPage;
 function clearPage () {
 	var container=$('#main');
 	container.empty();
@@ -151,40 +151,48 @@ function createSettingsPage () {
 	}
 
 $('#mainPageButton').on("click",function(){
-	$('.button-collapse').sideNav('hide');
-	$('#slide-out').find("li.active").removeClass('active');
-	$(this).addClass('active');
-	clearPage();
-	preLoader();
-	setTimeout(createMainPage, 2000);
-	
+	if (currentPage != "MainPage") {
+		$('.button-collapse').sideNav('hide');
+		$('#slide-out').find("li.active").removeClass('active');
+		$(this).addClass('active');
+		clearPage();
+		preLoader();
+		setTimeout(createMainPage, 2000);
+		currentPage="MainPage";
+	}
 });
 $('#tablePageButton').on("click",function(){
-	$('.button-collapse').sideNav('hide');
-	$('#slide-out').find("li.active").removeClass('active');
-	$(this).addClass('active');
-	clearPage();
-	preLoader();
-	setTimeout(createTablePage, 2000);
-	
+	if (currentPage != "TablePage") {
+		$('.button-collapse').sideNav('hide');
+		$('#slide-out').find("li.active").removeClass('active');
+		$(this).addClass('active');
+		clearPage();
+		preLoader();
+		setTimeout(createTablePage, 2000);
+		currentPage="TablePage";
+	}
 });
 $('#notifyPageButton').on("click",function(){
-	$('.button-collapse').sideNav('hide');
-	$('#slide-out').find("li.active").removeClass('active');
-	$(this).addClass('active');
-	clearPage();
-	preLoader();
-	setTimeout(createNotifyPage, 2000);
-	
+	if (currentPage != "NotifyPage") {
+		$('.button-collapse').sideNav('hide');
+		$('#slide-out').find("li.active").removeClass('active');
+		$(this).addClass('active');
+		clearPage();
+		preLoader();
+		setTimeout(createNotifyPage, 2000);
+		currentPage="NotifyPage";
+	}
 });
 $('#settingsPageButton').on("click",function(){
-	$('.button-collapse').sideNav('hide');
-	$('#slide-out').find("li.active").removeClass('active');
-	$(this).addClass('active');
-	clearPage();
-	preLoader();
-	setTimeout(createSettingsPage, 2000);
-
+	if (currentPage != "SettingsPage") {
+		$('.button-collapse').sideNav('hide');
+		$('#slide-out').find("li.active").removeClass('active');
+		$(this).addClass('active');
+		clearPage();
+		preLoader();
+		setTimeout(createSettingsPage, 2000);
+		currentPage="SettingsPage";
+	}
 });
 
 
