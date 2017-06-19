@@ -19,7 +19,7 @@ main {
 	margin-right:auto;
 }
 #page {		
-	min-height: calc(100vh - 150px)
+	min-height: calc(100vh - 160px)
 }
 
 
@@ -205,6 +205,11 @@ footer {
 .drag-target {
 	display:none;
 }
+
+.preloader-wrapper {
+	margin-left:45%;
+	margin-top:40%;	
+	}
 
 @media only screen and (max-width: 992px) {
   main {

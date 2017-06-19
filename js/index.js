@@ -12,7 +12,20 @@ function clearPage () {
 	container.empty();
 }
 
+function preLoader () {
+	var container=$('#main');
+	var loader=$('<div>').addClass('preloader-wrapper big active').appendTo(container);
+	var spinner=$('<div>').addClass('spinner-layer spinner-blue-only').appendTo(loader);
+		var clipperLeft=$('<div>').addClass('circle-clipper left').appendTo(spinner);
+			$('<div>').addClass('circle').appendTo(clipperLeft);
+		var gapPatch=$('<div>').addClass('gap-patch').appendTo(spinner);
+			$('<div>').addClass('circle').appendTo(gapPatch);
+		var clipperRight=$('<div>').addClass('circle-clipper right').appendTo(spinner);
+			$('<div>').addClass('circle').appendTo(clipperRight);		
+}
+
 function createMainPage () {
+	clearPage();
 	var container=$('#main');
 	var row=$('<div>').addClass('row').appendTo(container);
 	
@@ -44,6 +57,7 @@ function createMainPage () {
 	createCard(row);
 }
 function createTablePage () {
+	clearPage();
 	var container=$('#main');
 	
 	$('<h1>').addClass('header').text("Все даты").appendTo(container);
@@ -74,6 +88,7 @@ function createTablePage () {
 	
 }
 function createNotifyPage () {
+	clearPage();
 	var container=$('#main');
 	$('<h1>').addClass('header').text("Уведомления").appendTo(container);
 	var undercontainer=$('<div>').addClass('undermain').appendTo(container);	
@@ -103,6 +118,7 @@ function createNotifyPage () {
 	$('<a>').addClass('waves-effect green btn-large').text("Сохранить изменения").appendTo(centered);
 }
 function createSettingsPage () {
+	clearPage();
 	var container=$('#main');
 	$('<h1>').addClass('header').text("Настройки").appendTo(container);
 	var collection=$('<ul>').addClass('collection').appendTo(container);
@@ -139,28 +155,36 @@ $('#mainPageButton').on("click",function(){
 	$('#slide-out').find("li.active").removeClass('active');
 	$(this).addClass('active');
 	clearPage();
-	createMainPage();
+	preLoader();
+	setTimeout(createMainPage, 2000);
+	
 });
 $('#tablePageButton').on("click",function(){
 	$('.button-collapse').sideNav('hide');
 	$('#slide-out').find("li.active").removeClass('active');
 	$(this).addClass('active');
 	clearPage();
-	createTablePage();
+	preLoader();
+	setTimeout(createTablePage, 2000);
+	
 });
 $('#notifyPageButton').on("click",function(){
 	$('.button-collapse').sideNav('hide');
 	$('#slide-out').find("li.active").removeClass('active');
 	$(this).addClass('active');
 	clearPage();
-	createNotifyPage();
+	preLoader();
+	setTimeout(createNotifyPage, 2000);
+	
 });
 $('#settingsPageButton').on("click",function(){
 	$('.button-collapse').sideNav('hide');
 	$('#slide-out').find("li.active").removeClass('active');
 	$(this).addClass('active');
 	clearPage();
-	createSettingsPage();
+	preLoader();
+	setTimeout(createSettingsPage, 2000);
+
 });
 
 
