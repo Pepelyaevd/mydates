@@ -155,42 +155,48 @@ function createSettingsPage () {
 			$('<div>').addClass('col s5 grey-text darken-1').text("Часовой пояс").appendTo(lineTimezone);
 			var lineTimezoneDiv=$('<div>').addClass('col s7').text("Москва (+3.00)").appendTo(lineTimezone);
 			$('<i>').addClass('material-icons').text("mode_edit").appendTo(lineTimezoneDiv);
-			
-		//modals
-		//name
-		var nameModalDiv=$('<div>').addClass('modal').attr("id","nameModal").appendTo(container);
-			var modalDivcontent=$('<div>').addClass('modal-content').appendTo(nameModalDiv);
-				$('<h4>').text("Изменить имя").appendTo(modalDivcontent);
-				var modalDivcontentInput=$('<div>').addClass('input-field').attr("type","text").attr("value","innnput").appendTo(modalDivcontent);
-				$('<input>').addClass('input').attr("type","text").attr("value","innnput").appendTo(modalDivcontent);
-			var modalDivFooter=$('<div>').addClass('modal-footer').appendTo(nameModalDiv);
-				var modalyes=$('<a>').addClass("modal-action modal-close waves-effect waves-green btn-flat").text("OK").appendTo(modalDivFooter);
-			
-		modalyes.click(function(){
-			//toserver -> callback
-			Materialize.toast('Изменения сохранены.', 3000)
-		});
-		
-		//city
-		var cityModalDiv=$('<div>').addClass('modal').attr("id","cityModal").appendTo(container);
-			var modalDivcontent=$('<div>').addClass('modal-content').appendTo(cityModalDiv);
-				$('<h4>').text("Изменить город").appendTo(modalDivcontent);
-				var modalDivcontentInput=$('<div>').addClass('input-field').appendTo(modalDivcontent);
-				$('<input>').addClass('input').attr("type","text").attr("value","Perm").appendTo(modalDivcontent);
-			var modalDivFooter=$('<div>').addClass('modal-footer').appendTo(cityModalDiv);
-				var modalyes=$('<a>').addClass("modal-action modal-close waves-effect waves-green btn-flat").text("OK").appendTo(modalDivFooter);
-		
-		modalyes.click(function(){
-			//toserver -> callback
-			Materialize.toast('Изменения сохранены.', 3000)
-		});			
+						
 		
 		//events
+		lineNameDiv.click(function(){
+				var nameModalDiv=$('<div>').addClass('modal').attr("id","nameModal").appendTo(container);
+					var modalDivcontent=$('<div>').addClass('modal-content').appendTo(nameModalDiv);
+						$('<h4>').text("Изменить имя").appendTo(modalDivcontent);
+						var modalDivcontentInput=$('<div>').addClass('input-field').attr("type","text").attr("value","innnput").appendTo(modalDivcontent);
+						$('<input>').addClass('input').attr("type","text").attr("value","innnput").appendTo(modalDivcontent);
+					var modalDivFooter=$('<div>').addClass('modal-footer').appendTo(nameModalDiv);
+						var modalno=$('<a>').addClass("modal-action modal-close waves-effect waves-green btn-flat").text("Cancel").appendTo(modalDivFooter);
+						var modalyes=$('<a>').addClass("modal-action modal-close waves-effect waves-green btn-flat").text("OK").appendTo(modalDivFooter);
+						
+					
+				modalyes.click(function(){
+					//toserver -> callback
+					Materialize.toast('Изменения сохранены.', 3000)
+				});
+				
+				
+		});
+		
+		lineCityDiv.click(function(){
+							var cityModalDiv=$('<div>').addClass('modal').attr("id","cityModal").appendTo(container);
+						var modalDivcontent=$('<div>').addClass('modal-content').appendTo(cityModalDiv);
+							$('<h4>').text("Изменить город").appendTo(modalDivcontent);
+							var modalDivcontentInput=$('<div>').addClass('input-field').appendTo(modalDivcontent);
+							$('<input>').addClass('input').attr("type","text").attr("value","Perm").appendTo(modalDivcontent);
+						var modalDivFooter=$('<div>').addClass('modal-footer').appendTo(cityModalDiv);
+							var modalno=$('<a>').addClass("modal-action modal-close waves-effect waves-green btn-flat").text("Cancel").appendTo(modalDivFooter);
+							var modalyes=$('<a>').addClass("modal-action modal-close waves-effect waves-green btn-flat").text("OK").appendTo(modalDivFooter);
+					
+					modalyes.click(function(){
+						//toserver -> callback
+						Materialize.toast('Изменения сохранены.', 3000)
+					});		
+							
+				
+		});
 		
 		lineNameDiv.leanModal();
 		lineCityDiv.leanModal();
-		
-		
 		
 }
 
