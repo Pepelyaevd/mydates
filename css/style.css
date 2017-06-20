@@ -72,7 +72,8 @@ nav .button-collapse {
 	line-height: 22px!important;
     margin: 20px 0;
 	color: #444; 
-	text-align:center;	
+	text-align:center;
+	cursor:default;
 }
 .username .material-icons {
 	font-size:30px;
@@ -185,7 +186,6 @@ max-width:200px;
 .collection-item .col.s7 i {
 	margin-left: 5px;
     font-size: 20px;
-	cursor:default;
 	line-height: 24px;
 }
 
@@ -211,13 +211,20 @@ footer {
 }
 
 .modal.open {
-	height: 215px;
+	/*height: 215px;*/
 }
 
 .preloader-wrapper {
 	margin-left:calc(50% - 32px);
 	margin-top:30vh;	
 	}
+	
+	
+	
+	
+.modal h4 {
+	font-size: 30px;	
+}
 
 @media only screen and (max-width: 992px) {
   main {

@@ -1,3 +1,15 @@
+var user={
+		name:"Добрыня Никитич",
+		city:"Москва",
+		mail:"dobrinya9999999@qweqwe.com",
+		tel:"+79009998877",
+		birthdayYear:1958,
+		birthdayMonth:8,
+		birthdayDay:26,
+		timeZone:3,		
+		};
+$('.username').text(user.name);
+		
 
 
 $('.button-collapse').sideNav();
@@ -102,7 +114,7 @@ function createNotifyPage () {
 	$('<input>').attr("type","checkbox").attr("id","mail2").attr("disabled","disabled").appendTo(mailCheckboxButtons);
 	$('<label>').attr("for","mail2").text("За день").appendTo(mailCheckboxButtons);
 	var label33=$('<input>').attr("type","checkbox").attr("id","mail3").appendTo(mailCheckboxButtons);
-	$('<label>').attr("for","mail3").attr("id","mail33").text("В день события").appendTo(mailCheckboxButtons);
+	$('<label>').attr("for","mail3").text("В день события").appendTo(mailCheckboxButtons);
 	
 	$('<h2>').text("SMS").appendTo(undercontainer);
 	var smsCheckboxButtons=$('<p>').appendTo(undercontainer);
@@ -127,33 +139,38 @@ function createNotifyPage () {
 		
 }
 function createSettingsPage () {
+	
 		clearPage();
 		var container=$('#main');
 		$('<h1>').addClass('header').text("Настройки").appendTo(container);
 		var collection=$('<ul>').addClass('collection').appendTo(container);
 		var lineName=$('<li>').addClass('collection-item line row').appendTo(collection);
 			$('<div>').addClass('col s5 grey-text darken-1').text("Имя").appendTo(lineName);
-			var lineNameDiv=$('<div>').addClass('col s7').attr("href","#nameModal").text("Иннокентий").appendTo(lineName);	//	
-			$('<i>').addClass('material-icons').text("mode_edit").appendTo(lineNameDiv);
+			var lineNameDiv=$('<div>').addClass('col s7').attr("href","#nameModal").appendTo(lineName);
+				var lineNameValue=$('<div>').text(user.name).appendTo(lineNameDiv);
+				$('<i>').addClass('material-icons').text("mode_edit").appendTo(lineNameDiv);
 		var lineCity=$('<li>').addClass('collection-item line row').appendTo(collection);
 			$('<div>').addClass('col s5 grey-text darken-1').text("Город").appendTo(lineCity);
-			var lineCityDiv=$('<div>').addClass('col s7').attr("href","#cityModal").text("Москва").appendTo(lineCity);
-			$('<i>').addClass('material-icons').text("mode_edit").appendTo(lineCityDiv);
+			var lineCityDiv=$('<div>').addClass('col s7').attr("href","#cityModal").appendTo(lineCity);
+				var lineCityValue=$('<div>').text(user.city).appendTo(lineCityDiv);
+				$('<i>').addClass('material-icons').text("mode_edit").appendTo(lineCityDiv);
 		var lineMail=$('<li>').addClass('collection-item line row').appendTo(collection);
 			$('<div>').addClass('col s5 grey-text darken-1').text("E-mail").appendTo(lineMail);
-			var lineMailDiv=$('<div>').addClass('col s7').text("dima123123123@asd.ru").appendTo(lineMail);
-			$('<i>').addClass('material-icons').text("mode_edit").appendTo(lineMailDiv);
+			var lineMailDiv=$('<div>').addClass('col s7').attr("href","#mailModal").appendTo(lineMail);
+				var lineMailValue=$('<div>').text(user.mail).appendTo(lineMailDiv);
+				$('<i>').addClass('material-icons').text("mode_edit").appendTo(lineMailDiv);
 		var lineTel=$('<li>').addClass('collection-item line row').appendTo(collection);
 			$('<div>').addClass('col s5 grey-text darken-1').text("Телефон").appendTo(lineTel);
-			var lineTelDiv=$('<div>').addClass('col s7').text("+7-123-00-00-00").appendTo(lineTel);	
-			$('<i>').addClass('material-icons').text("mode_edit").appendTo(lineTelDiv);
+			var lineTelDiv=$('<div>').addClass('col s7').attr("href","#telModal").appendTo(lineTel);	
+				var lineTelValue=$('<div>').text(user.tel).appendTo(lineTelDiv);
+				$('<i>').addClass('material-icons').text("mode_edit").appendTo(lineTelDiv);
 		var lineBirthday=$('<li>').addClass('collection-item line row').appendTo(collection);
 			$('<div>').addClass('col s5 grey-text darken-1').text("День рождения").appendTo(lineBirthday);
-			var lineBirthdayDiv=$('<div>').addClass('col s7').text("28 декабря 1980").appendTo(lineBirthday);
+			var lineBirthdayDiv=$('<div>').addClass('col s7').text(user.birthdayDay+'.'+user.birthdayMonth+'.'+user.birthdayYear).appendTo(lineBirthday);
 			$('<i>').addClass('material-icons').text("mode_edit").appendTo(lineBirthdayDiv);
 		var lineTimezone=$('<li>').addClass('collection-item line row').appendTo(collection);
 			$('<div>').addClass('col s5 grey-text darken-1').text("Часовой пояс").appendTo(lineTimezone);
-			var lineTimezoneDiv=$('<div>').addClass('col s7').text("Москва (+3.00)").appendTo(lineTimezone);
+			var lineTimezoneDiv=$('<div>').addClass('col s7').text("Москва ("+user.birthdayMonth+")").appendTo(lineTimezone);
 			$('<i>').addClass('material-icons').text("mode_edit").appendTo(lineTimezoneDiv);
 						
 		
@@ -162,15 +179,16 @@ function createSettingsPage () {
 				var nameModalDiv=$('<div>').addClass('modal').attr("id","nameModal").appendTo(container);
 					var modalDivcontent=$('<div>').addClass('modal-content').appendTo(nameModalDiv);
 						$('<h4>').text("Изменить имя").appendTo(modalDivcontent);
-						var modalDivcontentInput=$('<div>').addClass('input-field').attr("type","text").attr("value","innnput").appendTo(modalDivcontent);
-						$('<input>').addClass('input').attr("type","text").attr("value","innnput").appendTo(modalDivcontent);
+						var modalDivcontentInput=$('<div>').addClass('input-field').appendTo(modalDivcontent);
+						var modalDivcontentValue=$('<input>').addClass('input').attr("type","text").attr("value",user.name).appendTo(modalDivcontent);
 					var modalDivFooter=$('<div>').addClass('modal-footer').appendTo(nameModalDiv);
 						var modalno=$('<a>').addClass("modal-action modal-close waves-effect waves-green btn-flat").text("Cancel").appendTo(modalDivFooter);
 						var modalyes=$('<a>').addClass("modal-action modal-close waves-effect waves-green btn-flat").text("OK").appendTo(modalDivFooter);
 						
 					
 				modalyes.click(function(){
-					//toserver -> callback
+						user.name=modalDivcontentValue.val();//toserver 
+						lineNameValue.text(user.name);
 					Materialize.toast('Изменения сохранены.', 3000)
 				});
 				
@@ -178,25 +196,67 @@ function createSettingsPage () {
 		});
 		
 		lineCityDiv.click(function(){
-							var cityModalDiv=$('<div>').addClass('modal').attr("id","cityModal").appendTo(container);
+						var cityModalDiv=$('<div>').addClass('modal').attr("id","cityModal").appendTo(container);
 						var modalDivcontent=$('<div>').addClass('modal-content').appendTo(cityModalDiv);
 							$('<h4>').text("Изменить город").appendTo(modalDivcontent);
 							var modalDivcontentInput=$('<div>').addClass('input-field').appendTo(modalDivcontent);
-							$('<input>').addClass('input').attr("type","text").attr("value","Perm").appendTo(modalDivcontent);
+							var modalDivcontentValue=$('<input>').addClass('input').attr("type","text").attr("value",user.city).appendTo(modalDivcontent);
 						var modalDivFooter=$('<div>').addClass('modal-footer').appendTo(cityModalDiv);
 							var modalno=$('<a>').addClass("modal-action modal-close waves-effect waves-green btn-flat").text("Cancel").appendTo(modalDivFooter);
 							var modalyes=$('<a>').addClass("modal-action modal-close waves-effect waves-green btn-flat").text("OK").appendTo(modalDivFooter);
 					
 					modalyes.click(function(){
-						//toserver -> callback
+						user.city=modalDivcontentValue.val();//toserver 
+						lineCityValue.text(user.city);
+						
 						Materialize.toast('Изменения сохранены.', 3000)
-					});		
+					});
+		});
+		
+		lineMailDiv.click(function(){
+						var mailModalDiv=$('<div>').addClass('modal').attr("id","mailModal").appendTo(container);
+						var modalDivcontent=$('<div>').addClass('modal-content').appendTo(mailModalDiv);
+							$('<h4>').text("Изменить E-mail").appendTo(modalDivcontent);
+							var modalDivcontentInput=$('<div>').addClass('input-field').appendTo(modalDivcontent);
+							var modalDivcontentValue=$('<input>').addClass('input validate').attr("type","email").attr("value",user.mail).appendTo(modalDivcontent);
+						var modalDivFooter=$('<div>').addClass('modal-footer').appendTo(mailModalDiv);
+							var modalno=$('<a>').addClass("modal-action modal-close waves-effect waves-green btn-flat").text("Cancel").appendTo(modalDivFooter);
+							var modalyes=$('<a>').addClass("modal-action modal-close waves-effect waves-green btn-flat").text("OK").appendTo(modalDivFooter);
+					
+					modalyes.click(function(){
+						user.mail=modalDivcontentValue.val();//toserver 
+						lineMailValue.text(user.mail);
+						
+						Materialize.toast('Изменения сохранены.', 3000)
+					});	
+							
+				
+		});
+		
+		lineTelDiv.click(function(){
+						var mailModalDiv=$('<div>').addClass('modal').attr("id","telModal").appendTo(container);
+						var modalDivcontent=$('<div>').addClass('modal-content').appendTo(mailModalDiv);
+							$('<h4>').text("Изменить телефон").appendTo(modalDivcontent);
+							var modalDivcontentInput=$('<div>').addClass('input-field').appendTo(modalDivcontent);
+							var modalDivcontentValue=$('<input>').addClass('input').attr("type","text").attr("value",user.tel).appendTo(modalDivcontent);
+						var modalDivFooter=$('<div>').addClass('modal-footer').appendTo(mailModalDiv);
+							var modalno=$('<a>').addClass("modal-action modal-close waves-effect waves-green btn-flat").text("Cancel").appendTo(modalDivFooter);
+							var modalyes=$('<a>').addClass("modal-action modal-close waves-effect waves-green btn-flat").text("OK").appendTo(modalDivFooter);
+					
+					modalyes.click(function(){
+						user.tel=modalDivcontentValue.val();//toserver 
+						lineTelValue.text(user.tel);
+						
+						Materialize.toast('Изменения сохранены.', 3000)
+					});	
 							
 				
 		});
 		
 		lineNameDiv.leanModal();
 		lineCityDiv.leanModal();
+		lineMailDiv.leanModal();
+		lineTelDiv.leanModal();
 		
 }
 
