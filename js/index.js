@@ -4,10 +4,43 @@ var user={
 		mail:"dobrinya9999999@qweqwe.com",
 		tel:"+79009998877",
 		birthdayYear:1958,
-		birthdayMonth:8,
+		birthdayMonth:08,
 		birthdayDay:26,
 		timeZone:3,		
 		};
+		
+		
+var allDates=[
+		{
+			id:1,
+			name:"Vasya Smirnov",
+			type:"День Рождения",
+			day:22,
+			month:12,
+			year:1955
+		},
+		{
+			id:2, 
+			name:"Alvin Eclair", 
+			type:"День Рождения", 
+			day:2, 
+			month:8, 
+			year:1993
+		},			
+			{id:3, name:"Vasya Smirnov", type:"День Рождения", day:27,month:12,year:1957},
+			{id:4, name:"Alvin Eclair", type:"День Рождения", day:3,month:10,year:1958},
+			{id:5, name:"Vasya Smirnov", type:"День Рождения", day:17,month:2,year:1959},
+			{id:6, name:"Alvin Eclair", type:"День Рождения", day:3,month:10,year:1958},
+			{id:712, name:"Vasya Smirnov", type:"День Рождения", day:17,month:2,year:1959},
+			{id:8, name:"Alvin Eclair", type:"День Рождения", day:3,month:10,year:1958},
+			{id:9, name:"Vasya Smirnov", type:"День Рождения", day:17,month:2,year:1959},
+			{id:610, name:"Alvin Eclair", type:"День Рождения", day:30,month:1,year:1980}];
+
+		
+		
+		
+		
+		
 $('.username').text(user.name);
 		
 
@@ -81,24 +114,72 @@ function createTablePage () {
 	$('<td>').text('Имя').appendTo(theadtr);
 	$('<td>').text('Тип').appendTo(theadtr);
 	$('<td>').text('Дата').appendTo(theadtr);
-	var tbody=$('<thead>').appendTo(table);
+	var tbody=$('<tbody>').appendTo(table);
 	
-	function addTableRow (){
-		var tbodytr=$('<tr>').appendTo(tbody);
-		$('<td>').text('Alvin Eclair').appendTo(tbodytr);
-		$('<td>').text('День рождения').appendTo(tbodytr);
-		$('<td>').text('1 января 1991').appendTo(tbodytr);
-	}
-	addTableRow();
-	addTableRow();
-	addTableRow();
-	addTableRow();
-	addTableRow();
-	addTableRow();
-	addTableRow();
-	addTableRow();
-	addTableRow();
-	addTableRow();
+	$.each(allDates, function(){
+		var tbodytr=$('<tr>').addClass('table-row-id').attr("data-id",this.id).appendTo(tbody);
+		$('<td>').text(this.name).appendTo(tbodytr);
+		$('<td>').text(this.type).appendTo(tbodytr);
+		$('<td>').text(this.day+"."+this.month+"."+this.year).appendTo(tbodytr);
+		var tableEditIcon=$('<td>').addClass('tableEdit').attr("href","#tableRowModal").appendTo(tbodytr);
+		$('<i>').addClass('material-icons edit-column').text("mode_edit").appendTo(tableEditIcon);		
+	});
+	
+	
+
+	function findObjectById(id) {
+			var a;
+			for (var item in allDates) 
+				{
+					if (allDates[item].id==id) {
+						a=allDates[item];
+						break;
+					}
+				}
+			return a;
+		}
+	findObjectById(3);
+	//event
+	$(".tableEdit").click(function(){
+						var tableModalDiv=$('<div>').addClass('modal').attr("id","tableRowModal").appendTo(container);
+						var modalDivcontent=$('<div>').addClass('modal-content').appendTo(tableModalDiv);
+							$('<h4>').text("Изменить событие").appendTo(modalDivcontent);
+						
+						var modalDivNameInputRow=$('<div>').addClass('row').appendTo(modalDivcontent);		
+							var modalDivNameInput=$('<div>').addClass('input-field col s12').appendTo(modalDivNameInputRow);							
+							var modalDivNameValue=$('<input>').addClass('input').attr("id","name_field").attr("type","text").attr("value",findObjectById($(this).parent().attr("data-id")).name).appendTo(modalDivNameInput);
+							$('<label>').addClass('input-label active').attr("for","name_field").text("Имя").appendTo(modalDivNameInput);	
+						var modalDivTypeInputRow=$('<div>').addClass('row').appendTo(modalDivcontent);			
+							var modalDivTypeInput=$('<div>').addClass('input-field col s12').appendTo(modalDivTypeInputRow);							
+							var modalDivTypeValue=$('<input>').addClass('input').attr("id","type_field").attr("type","text").attr("value",findObjectById($(this).parent().attr("data-id")).type).appendTo(modalDivTypeInput);
+							$('<label>').addClass('input-label active').attr("for","type_field").text("Тип").appendTo(modalDivTypeInput);
+							
+						var modalDivDateInput=$('<div>').addClass('row').appendTo(modalDivcontent);	
+							var modalDivDayInput=$('<div>').addClass('input-field col s4').appendTo(modalDivDateInput);							
+							var modalDivDayValue=$('<input>').addClass('input').attr("id","day_field").attr("type","number").attr("value",findObjectById($(this).parent().attr("data-id")).day).appendTo(modalDivDayInput);
+							$('<label>').addClass('input-label active').attr("for","day_field").text("Число").appendTo(modalDivDayInput);
+						
+							var modalDivMonthInput=$('<div>').addClass('input-field col s4').appendTo(modalDivDateInput);							
+							var modalDivDayValue=$('<input>').addClass('input').attr("id","month_field").attr("type","number").attr("value",findObjectById($(this).parent().attr("data-id")).month).appendTo(modalDivMonthInput);
+							$('<label>').addClass('input-label active').attr("for","month_field").text("Месяц").appendTo(modalDivMonthInput);
+						
+							var modalDivYearInput=$('<div>').addClass('input-field col s4').appendTo(modalDivDateInput);							
+							var modalDivYearValue=$('<input>').addClass('input').attr("id","year_field").attr("type","number").attr("value",findObjectById($(this).parent().attr("data-id")).year).appendTo(modalDivYearInput);
+							$('<label>').addClass('input-label active').attr("for","year_field").text("Год").appendTo(modalDivYearInput);
+						
+						var modalDivFooter=$('<div>').addClass('modal-footer').appendTo(tableModalDiv);
+							var modalno=$('<a>').addClass("modal-action modal-close waves-effect waves-green btn-flat").text("Cancel").appendTo(modalDivFooter);
+							var modalyes=$('<a>').addClass("modal-action modal-close waves-effect waves-green btn-flat").text("OK").appendTo(modalDivFooter);
+					
+					modalyes.click(function(){
+						user.city=modalDivcontentValue.val();//toserver 
+						lineCityValue.text(user.city);
+						
+						Materialize.toast('Изменения сохранены.', 3000)
+					});
+		});
+	
+	$(".tableEdit").leanModal();
 	
 }
 function createNotifyPage () {
