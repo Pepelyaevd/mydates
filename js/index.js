@@ -138,44 +138,61 @@ function createTablePage () {
 				}
 			return a;
 		}
-	findObjectById(3);
+
 	//event
 	$(".tableEdit").click(function(){
-						var tableModalDiv=$('<div>').addClass('modal').attr("id","tableRowModal").appendTo(container);
-						var modalDivcontent=$('<div>').addClass('modal-content').appendTo(tableModalDiv);
-							$('<h4>').text("Изменить событие").appendTo(modalDivcontent);
-						
-						var modalDivNameInputRow=$('<div>').addClass('row').appendTo(modalDivcontent);		
-							var modalDivNameInput=$('<div>').addClass('input-field col s12').appendTo(modalDivNameInputRow);							
-							var modalDivNameValue=$('<input>').addClass('input').attr("id","name_field").attr("type","text").attr("value",findObjectById($(this).parent().attr("data-id")).name).appendTo(modalDivNameInput);
-							$('<label>').addClass('input-label active').attr("for","name_field").text("Имя").appendTo(modalDivNameInput);	
-						var modalDivTypeInputRow=$('<div>').addClass('row').appendTo(modalDivcontent);			
-							var modalDivTypeInput=$('<div>').addClass('input-field col s12').appendTo(modalDivTypeInputRow);							
-							var modalDivTypeValue=$('<input>').addClass('input').attr("id","type_field").attr("type","text").attr("value",findObjectById($(this).parent().attr("data-id")).type).appendTo(modalDivTypeInput);
-							$('<label>').addClass('input-label active').attr("for","type_field").text("Тип").appendTo(modalDivTypeInput);
+				var tableObjectId=$(this).parent().attr("data-id");
+				var tableObject = findObjectById(tableObjectId);
+				var indexOfTableObject = allDates.indexOf(tableObject);
+				
+				$('#tableRowModal').remove();
+				var tableModalDiv=$('<div>').addClass('modal').attr("id","tableRowModal").appendTo(container);
+				var modalDivcontent=$('<div>').addClass('modal-content').appendTo(tableModalDiv);
+					$('<h4>').text("Изменить событие").appendTo(modalDivcontent);
+				
+				var modalDivNameInputRow=$('<div>').addClass('row').appendTo(modalDivcontent);		
+					var modalDivNameInput=$('<div>').addClass('input-field col s12').appendTo(modalDivNameInputRow);							
+					var modalDivNameValue=$('<input>').addClass('input').attr("id","name_field").attr("type","text").attr("value",tableObject.name).appendTo(modalDivNameInput);
+					$('<label>').addClass('input-label active').attr("for","name_field").text("Имя").appendTo(modalDivNameInput);	
+				var modalDivTypeInputRow=$('<div>').addClass('row').appendTo(modalDivcontent);			
+					var modalDivTypeInput=$('<div>').addClass('input-field col s12').appendTo(modalDivTypeInputRow);							
+					var modalDivTypeValue=$('<input>').addClass('input').attr("id","type_field").attr("type","text").attr("value",tableObject.type).appendTo(modalDivTypeInput);
+					$('<label>').addClass('input-label active').attr("for","type_field").text("Тип").appendTo(modalDivTypeInput);
 							
-						var modalDivDateInput=$('<div>').addClass('row').appendTo(modalDivcontent);	
-							var modalDivDayInput=$('<div>').addClass('input-field col s4').appendTo(modalDivDateInput);							
-							var modalDivDayValue=$('<input>').addClass('input').attr("id","day_field").attr("type","number").attr("value",findObjectById($(this).parent().attr("data-id")).day).appendTo(modalDivDayInput);
-							$('<label>').addClass('input-label active').attr("for","day_field").text("Число").appendTo(modalDivDayInput);
+				var modalDivDateInput=$('<div>').addClass('row').appendTo(modalDivcontent);	
+					var modalDivDayInput=$('<div>').addClass('input-field col s4').appendTo(modalDivDateInput);							
+					var modalDivDayValue=$('<input>').addClass('input').attr({min:1,max:31}).attr("id","day_field").attr("type","number").attr("value",tableObject.day).appendTo(modalDivDayInput);
+					$('<label>').addClass('input-label active').attr("for","day_field").text("Число").appendTo(modalDivDayInput);
 						
-							var modalDivMonthInput=$('<div>').addClass('input-field col s4').appendTo(modalDivDateInput);							
-							var modalDivDayValue=$('<input>').addClass('input').attr("id","month_field").attr("type","number").attr("value",findObjectById($(this).parent().attr("data-id")).month).appendTo(modalDivMonthInput);
-							$('<label>').addClass('input-label active').attr("for","month_field").text("Месяц").appendTo(modalDivMonthInput);
+					var modalDivMonthInput=$('<div>').addClass('input-field col s4').appendTo(modalDivDateInput);							
+					var modalDivMonthValue=$('<input>').addClass('input').attr({min:1,max:12}).attr("id","month_field").attr("type","number").attr("value",tableObject.month).appendTo(modalDivMonthInput);
+					$('<label>').addClass('input-label active').attr("for","month_field").text("Месяц").appendTo(modalDivMonthInput);
+				
+					var modalDivYearInput=$('<div>').addClass('input-field col s4').appendTo(modalDivDateInput);							
+					var modalDivYearValue=$('<input>').addClass('input').attr({min:1920,max:2020}).attr("id","year_field").attr("type","number").attr("value",tableObject.year).appendTo(modalDivYearInput);
+					$('<label>').addClass('input-label active').attr("for","year_field").text("Год").appendTo(modalDivYearInput);
 						
-							var modalDivYearInput=$('<div>').addClass('input-field col s4').appendTo(modalDivDateInput);							
-							var modalDivYearValue=$('<input>').addClass('input').attr("id","year_field").attr("type","number").attr("value",findObjectById($(this).parent().attr("data-id")).year).appendTo(modalDivYearInput);
-							$('<label>').addClass('input-label active').attr("for","year_field").text("Год").appendTo(modalDivYearInput);
-						
-						var modalDivFooter=$('<div>').addClass('modal-footer').appendTo(tableModalDiv);
-							var modalno=$('<a>').addClass("modal-action modal-close waves-effect waves-green btn-flat").text("Cancel").appendTo(modalDivFooter);
-							var modalyes=$('<a>').addClass("modal-action modal-close waves-effect waves-green btn-flat").text("OK").appendTo(modalDivFooter);
+				var modalDivFooter=$('<div>').addClass('modal-footer').appendTo(tableModalDiv);
+					var modalno=$('<a>').addClass("modal-action modal-close waves-effect waves-green btn-flat").text("Cancel").appendTo(modalDivFooter);
+					var modalyes=$('<a>').addClass("modal-action modal-close waves-effect waves-green btn-flat").text("OK").appendTo(modalDivFooter);
 					
-					modalyes.click(function(){
-						user.city=modalDivcontentValue.val();//toserver 
-						lineCityValue.text(user.city);
-						
-						Materialize.toast('Изменения сохранены.', 3000)
+			modalyes.click(function(){
+				var changedRow={
+					id:tableObjectId,
+					name:modalDivNameValue.val(),
+					type:modalDivTypeValue.val(),
+					day:modalDivDayValue.val(),
+					month:modalDivMonthValue.val(),
+					year:modalDivYearValue.val()
+				};
+				//update row
+				var a=$('[data-id='+tableObjectId+']');
+				a.children('td').eq(0).text(changedRow.name);
+				a.children('td').eq(1).text(changedRow.type);
+				a.children('td').eq(2).text(changedRow.day+"."+changedRow.month+"."+changedRow.year);	
+				
+				allDates[indexOfTableObject]=changedRow;//toserver 
+				Materialize.toast('Изменения сохранены.', 3000)
 					});
 		});
 	
