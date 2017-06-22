@@ -227,6 +227,9 @@ footer {
 	font-size: 26px;
     text-align: center;	
 }
+.modal-content .row {
+	margin-bottom:0;
+}
 
 
 .tableEdit {
