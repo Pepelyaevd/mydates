@@ -4,6 +4,7 @@ body {
 	width:100%;
 	display: table-cell;
     vertical-align: middle;
+	color:#4d4d4d;
 }
 html {
     display: table;
@@ -22,4 +23,12 @@ html {
 
 .toast {
 	background-color:#ffa000!important;
+}
+h1 {
+	font-size:30px;
+	line-height:1;
+	margin: 10px 0 0 0;
+}
+.material-icons {
+	margin-top: 8px;
 }
