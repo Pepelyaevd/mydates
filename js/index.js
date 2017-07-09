@@ -192,7 +192,7 @@ function createTablePage () {
 				a.children('td').eq(2).text(changedRow.day+"."+changedRow.month+"."+changedRow.year);	
 				
 				allDates[indexOfTableObject]=changedRow;//toserver 
-				Materialize.toast('Изменения сохранены.', 3000)
+				Materialize.toast('Изменения сохранены.', 300000)
 					});
 		});
 	

@@ -7,7 +7,7 @@ $('#onLogin').click(function(){
 	var emailStr= $('#email').val();
 	
 	if (!$('#email').val()) {
-		Materialize.toast('Введите емейл', 3000);
+		Materialize.toast('Введите емейл', 3000000);
 	}	
 	else if (!isValidEmailAddress(emailStr)) {
 		Materialize.toast('Введите корректный email', 3000);
