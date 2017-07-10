@@ -2,7 +2,6 @@ html {
 	height:100%;
 }
 body {
-	min-height: 550px;
 	margin:0;
 }
 
@@ -265,9 +264,7 @@ footer {
 }
 
 @media only screen and (max-width: 600px) {
-	body {
-		min-height: 550px;
-	}
+
 	#page {		
 		min-height: calc(100vh - 142px);
 	}
