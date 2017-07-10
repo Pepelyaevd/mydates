@@ -22,7 +22,9 @@ main {
 	min-height: calc(100vh - 150px)
 }
 
-
+.modal {
+	width:400px;
+}
 
 .color {
 	background-color:#00bcd4!important;
@@ -257,6 +259,9 @@ footer {
 .collection-item.row .col {
 	padding:0!important;
 	}  
+	.modal {
+		width:400px;
+	}
 }
 
 @media only screen and (max-width: 600px) {
@@ -264,6 +269,8 @@ footer {
 	#page {		
 		min-height: calc(100vh - 142px)
 	}
-	
+	.modal {
+		width:80%;
+	}
 	
   }

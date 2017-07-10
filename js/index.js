@@ -39,18 +39,116 @@ var allDates=[
 		
 		
 		
+
+
+
+function createAppPage () {
+	
+	var container = $('body');
+	//header	
+	var header=$('<header>').appendTo(container);
+	var nav=$('<nav>').addClass('color').attr("role","navigation").appendTo(header);
+	var navDiv=$('<div>').addClass('nav-wrapper page').appendTo(nav);
+	$('<span>').text('MyDates.pro').appendTo(navDiv);
+	var navDivSpan=$('<a>').addClass('button-collapse').attr("data-activates","slide-out").attr("href","#!").appendTo(navDiv);
+	$('<i>').addClass('material-icons').text('menu').appendTo(navDivSpan);
+	//page
+	var page = $('<div>').addClass('page').attr("id","page").appendTo(container);
+	var sideNav = $('<ul>').addClass('side-nav fixed').attr("id","slide-out").appendTo(page);
+		$('<li>').addClass('username').text(user.name).appendTo(sideNav);
+		$('<li>').addClass('divider divider1').appendTo(sideNav);
+		var mainItem=$('<li>').attr("id","mainPageButton").appendTo(sideNav);
+			var mainItemA=$('<a>').addClass('waves-effect').attr("href","#!").text('Главная').appendTo(mainItem);
+				$('<i>').addClass('material-icons').text('dashboard').appendTo(mainItemA);
+		var tableItem=$('<li>').attr("id","tablePageButton").appendTo(sideNav);
+			var tableItemA=$('<a>').addClass('waves-effect').attr("href","#!").text('Все даты').appendTo(tableItem);
+				$('<i>').addClass('material-icons').text('contacts').appendTo(tableItemA);
+		var notifyItem=$('<li>').attr("id","notifyPageButton").appendTo(sideNav);
+			var notifyItemA=$('<a>').addClass('waves-effect').attr("href","#!").text('Уведомления').appendTo(notifyItem);
+				$('<i>').addClass('material-icons').text('forum').appendTo(notifyItemA);
+		var settingsItem=$('<li>').attr("id","settingsPageButton").appendTo(sideNav);
+			var settingsItemA=$('<a>').addClass('waves-effect').attr("href","#!").text('Настройки').appendTo(settingsItem);
+				$('<i>').addClass('material-icons').text('settings').appendTo(settingsItemA);
+		$('<li>').addClass('divider divider2').appendTo(sideNav);		
+		var logoutItem=$('<li>').attr("id","dash_dashboard3").appendTo(sideNav);
+			var logoutItemA=$('<a>').addClass('waves-effect').attr("href","#!").text('Выйти').appendTo(logoutItem);
+				$('<i>').addClass('material-icons rotate-180').text('input').appendTo(logoutItemA);	
+		//main
+		var main = $('<main>').attr("id","main").appendTo(page);
+	//footer
+	var footer=$('<footer>').addClass('color page-footer').appendTo(container);	
+		$('<div>').addClass('container').text("Mydates.pro @2017").appendTo(footer);
+	//open mainPage
+		$('.button-collapse').sideNav('hide');		
+		$("#mainPageButton").addClass('active');
+		preLoader();
+		setTimeout(createMainPage, 1000);
+		currentPage="MainPage";
+	
+	$('.button-collapse').sideNav();
+	$('.collapsible').collapsible();
+	$('select1').material_select();
+	$('.modaltrigger').leanModal();
 		
+	$('#mainPageButton').on("click",function(){
+		if (currentPage != "MainPage") {
+			$('.button-collapse').sideNav('hide');
+			$('#slide-out').find("li.active").removeClass('active');
+			$(this).addClass('active');
+			clearPage();
+			preLoader();
+			setTimeout(createMainPage, 1000);
+			currentPage="MainPage";
+		} else {
+			$('.button-collapse').sideNav('hide');
+		}
+	});
+	$('#tablePageButton').on("click",function(){
+		if (currentPage != "TablePage") {
+			$('.button-collapse').sideNav('hide');
+			$('#slide-out').find("li.active").removeClass('active');
+			$(this).addClass('active');
+			clearPage();
+			preLoader();
+			setTimeout(createTablePage, 1000);
+			currentPage="TablePage";
+		} else {
+			$('.button-collapse').sideNav('hide');
+		}
+	});
+	$('#notifyPageButton').on("click",function(){
+		if (currentPage != "NotifyPage") {
+			$('.button-collapse').sideNav('hide');
+			$('#slide-out').find("li.active").removeClass('active');
+			$(this).addClass('active');
+			clearPage();
+			preLoader();
+			setTimeout(createNotifyPage, 1000);
+			currentPage="NotifyPage";
+		} else {
+			$('.button-collapse').sideNav('hide');
+		}
+	});
+	$('#settingsPageButton').on("click",function(){
+		if (currentPage != "SettingsPage") {
+			$('.button-collapse').sideNav('hide');
+			$('#slide-out').find("li.active").removeClass('active');
+			$(this).addClass('active');
+			clearPage();
+			preLoader();
+			setTimeout(createSettingsPage, 1000);
+			currentPage="SettingsPage";
+		} else {
+			$('.button-collapse').sideNav('hide');
+		}
+
+	});
+}	
+
+$(createAppPage);		
 		
-$('.username').text(user.name);
-		
 
 
-$('.button-collapse').sideNav();
-
-$('.collapsible').collapsible();
-
-$('select1').material_select();
-$('.modaltrigger').leanModal();
 
 
 var currentPage;
@@ -358,59 +456,6 @@ function createSettingsPage () {
 		
 }
 
-$('#mainPageButton').on("click",function(){
-	if (currentPage != "MainPage") {
-		$('.button-collapse').sideNav('hide');
-		$('#slide-out').find("li.active").removeClass('active');
-		$(this).addClass('active');
-		clearPage();
-		preLoader();
-		setTimeout(createMainPage, 1000);
-		currentPage="MainPage";
-	} else {
-		$('.button-collapse').sideNav('hide');
-	}
-});
-$('#tablePageButton').on("click",function(){
-	if (currentPage != "TablePage") {
-		$('.button-collapse').sideNav('hide');
-		$('#slide-out').find("li.active").removeClass('active');
-		$(this).addClass('active');
-		clearPage();
-		preLoader();
-		setTimeout(createTablePage, 1000);
-		currentPage="TablePage";
-	} else {
-		$('.button-collapse').sideNav('hide');
-	}
-});
-$('#notifyPageButton').on("click",function(){
-	if (currentPage != "NotifyPage") {
-		$('.button-collapse').sideNav('hide');
-		$('#slide-out').find("li.active").removeClass('active');
-		$(this).addClass('active');
-		clearPage();
-		preLoader();
-		setTimeout(createNotifyPage, 1000);
-		currentPage="NotifyPage";
-	} else {
-		$('.button-collapse').sideNav('hide');
-	}
-});
-$('#settingsPageButton').on("click",function(){
-	if (currentPage != "SettingsPage") {
-		$('.button-collapse').sideNav('hide');
-		$('#slide-out').find("li.active").removeClass('active');
-		$(this).addClass('active');
-		clearPage();
-		preLoader();
-		setTimeout(createSettingsPage, 1000);
-		currentPage="SettingsPage";
-	} else {
-		$('.button-collapse').sideNav('hide');
-	}
-
-});
 
 
 

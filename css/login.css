@@ -5,6 +5,7 @@ body {
 	display: table-cell;
     vertical-align: middle;
 	color:#4d4d4d;
+	background-color:#e0e0e0;
 }
 html {
     display: table;
