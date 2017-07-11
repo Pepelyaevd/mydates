@@ -150,13 +150,21 @@ nav .button-collapse {
 .undermain {
 	padding-left: 7%;
 }
-h1 {
+.page h1 {
 	margin:0;
 	padding: 30px 10px 10px 10px;
 	font-size:30px;
 	text-align:center;
 }
-h2 {
+.landing h1 {
+
+	font-size:48px;
+}
+.landing .material-icons {
+    font-size: inherit;
+}
+
+.page h2 {
 	margin:40px 0 0 5px;
 	font-size:24px;
 }

@@ -144,8 +144,67 @@ function createAppPage () {
 
 	});
 }	
+function createLandingPage () {
+	
+	var container = $('body').addClass('landing');
+	//header	
+	var header=$('<header>').appendTo(container);
+	var nav=$('<nav>').addClass('color').attr("role","navigation").appendTo(header);
+	var navDiv=$('<div>').addClass('nav-wrapper page').appendTo(nav);
+	$('<span>').text('MyDates.pro').appendTo(navDiv);
+	
+	//page
+	var mainBanner = $('<div>').addClass('container').appendTo(container);
+		$('<br>').appendTo(mainBanner); 
+		$('<br>').appendTo(mainBanner); 
+		$('<h1>').addClass('header center orange-text').text('Добро пожаловать на myDates.pro').appendTo(mainBanner); 
+		$('<br>').appendTo(mainBanner); 
+		var h5div = $('<div>').addClass('row center').appendTo(mainBanner);
+			$('<h5>').addClass('header col s12 light').text('С нами вы больше никогда не забудете поздравить своих близких!').appendTo(h5div); 
+		var actiondiv = $('<div>').addClass('row center').appendTo(mainBanner);
+			$('<a>').addClass('btn-large waves-effect waves-light orange').attr("href","./register.html").text("Поехали!").appendTo(actiondiv);
+			var tolog=$('<p>').addClass('').text("Уже используете Dates? ").appendTo(actiondiv);
+				$('<a>').addClass('light-blue-text').attr("href","./login.html").text("Войти").appendTo(tolog);
+		$('<br>').appendTo(mainBanner); 
+		$('<br>').appendTo(mainBanner); 
+	var infoBlock = $('<div>').addClass('container').appendTo(container);
+		var section = $('<div>').addClass('section').appendTo(infoBlock);
+		var sectionRow = $('<div>').addClass('row').appendTo(section);
+			var c1 = $('<div>').addClass('col s12 m3').appendTo(sectionRow);
+				var c1div = $('<div>').addClass('icon-block').appendTo(c1);
+					var c1divh2 = $('<h2>').addClass('center light-blue-text').appendTo(c1div);
+						$('<i>').addClass('material-icons').text('flash_on').appendTo(c1divh2);
+					$('<h5>').addClass('center').text('Удобное добавление важных дат').appendTo(c1div);
+					$('<p>').addClass('light').text('Добавляйте важные даты: дни рождения, годовщины, профессиональные праздники.').appendTo(c1div);
+			var c2 = $('<div>').addClass('col s12 m3').appendTo(sectionRow);
+				var c2div = $('<div>').addClass('icon-block').appendTo(c2);
+					var c1divh2 = $('<h2>').addClass('center light-blue-text').appendTo(c2div);
+						$('<i>').addClass('material-icons').text('https').appendTo(c1divh2);
+					$('<h5>').addClass('center').text('Надежное хранение').appendTo(c2div);
+					$('<p>').addClass('light').text('Dates будет надежно хранить все Ваши даты. Только Вы сможете их просматривать').appendTo(c2div);
+			var c3 = $('<div>').addClass('col s12 m3').appendTo(sectionRow);
+				var c3div = $('<div>').addClass('icon-block').appendTo(c3);
+					var c1divh3 = $('<h2>').addClass('center light-blue-text').appendTo(c3div);
+						$('<i>').addClass('material-icons').text('verified_user').appendTo(c1divh3);
+					$('<h5>').addClass('center').text('Все в одном месте').appendTo(c3div);
+					$('<p>').addClass('light').text('Сохраняйте все важные даты в одном месте и моментально получайте к ним доступ').appendTo(c3div);
+			var c4 = $('<div>').addClass('col s12 m3').appendTo(sectionRow);
+				var c4div = $('<div>').addClass('icon-block').appendTo(c4);
+					var c1divh4 = $('<h2>').addClass('center light-blue-text').appendTo(c4div);
+						$('<i>').addClass('material-icons').text('stay_primary_portrait').appendTo(c1divh4);
+					$('<h5>').addClass('center').text('Заходите на Dates с любого устройства').appendTo(c4div);
+					$('<p>').addClass('light').text('Dates оптимизирован для работы со всеми размерами экранов.').appendTo(c4div);
+		
+	
+	
+	//footer
+	var footer=$('<footer>').addClass('color page-footer').appendTo(container);	
+		$('<div>').addClass('container').text("Mydates.pro @2017").appendTo(footer);
+	
+}	
 
-$(createAppPage);		
+$(createAppPage);
+//$(createLandingPage);		
 		
 
 
