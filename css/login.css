@@ -39,6 +39,9 @@ h1 {
 .btn {
 	background-color:#ff4081;
 }
+.btn:hover, .btn-large:hover {
+    background-color: #ff5a92;
+}
 
 .active {
 	color:#ff4081!important;
