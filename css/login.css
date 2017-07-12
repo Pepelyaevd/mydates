@@ -7,6 +7,7 @@ body {
     vertical-align: middle;
 	color:#4d4d4d;
 	background-color:#e0e0e0;
+	background-color:#00bcd4;
 }
 html {
     display: table;
@@ -33,4 +34,16 @@ h1 {
 }
 .material-icons {
 	margin-top: 8px;
+}
+
+.btn {
+	background-color:#ff4081;
+}
+
+.active {
+	color:#ff4081!important;
+}
+input:focus {
+	border-bottom:1px solid #ff4081!important;
+	box-shadow:0 1px 00 #ff4081!important;
 }
