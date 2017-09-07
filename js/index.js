@@ -203,8 +203,8 @@ function createLandingPage () {
 	
 }	
 
-//$(createAppPage);
-$(createLandingPage);		
+$(createAppPage);
+//$(createLandingPage);		
 		
 
 
