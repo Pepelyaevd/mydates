@@ -277,7 +277,7 @@ function createTablePage () {
 	var container=$('#main');
 	
 	$('#pageHeader').text("Все даты");
-	var table=$('<table>').appendTo(container);
+	var table=$('<table>').addClass('striped').appendTo(container);
 	var thead=$('<thead>').appendTo(table);
 	var theadtr=$('<tr>').appendTo(thead);
 	$('<td>').text('Имя').appendTo(theadtr);

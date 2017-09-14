@@ -60,7 +60,11 @@ header {
 nav {
 	height:100px;
 }
-
+nav .button-collapse i {
+    font-size: 2.7rem;
+    height: 60px;
+    line-height: 60px;
+}
 .nav-wrapper span {
 	margin-left: 270px;
 	line-height:100px;
@@ -141,11 +145,9 @@ li.logo {
 	padding: 0 5px 0 15px;
 }
 .par .card-text{
-	padding: 0;
+	padding: 20px 10px;
 }
-.par p{
-	line-height:75px;
-}
+
 
 
 .card {
