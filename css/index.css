@@ -1,14 +1,24 @@
+@font-face {
+    font-family: Exo;
+    src: url(fonts/Exo2-Regular.ttf);
+}
+
 html {
 	height:100%;
+	font-family: Exo;
 }
 body {
 	margin:0;
 }
 
 main {
-	padding-left: 250px;
-	margin: 0 10px;
-	color: #444;
+	margin-left: 250px;	
+	color:#333333;
+	
+}
+
+span, p {
+cursor:default;
 }
 
 
@@ -26,10 +36,17 @@ main {
 }
 
 .color {
-	background-color:#00bcd4!important;
+	background-color:#4fb9df!important;
+}
+
+.bluefont {
+	color:#4fb9df!important;
+}
+.greenfont {
+	color:#6fcd95!important;
 }
 .green {
-	background-color:#4CAF50!important;
+	background-color:#6fcd95!important;
 }
 .centered {
 	text-align:center;
@@ -38,29 +55,37 @@ main {
 	
 header {
 	margin-bottom:5px;
-	font-size:20px;
+	font-size:24px;	
+}
+nav {
+	height:100px;
 }
 
 .nav-wrapper span {
-	margin-left:20px;
+	margin-left: 270px;
+	line-height:100px;
 }
 
 .side-nav.fixed {
     left: auto;
 	font-weight:normal;
-	top:74px;
-	box-shadow: none;
-	height:auto;
-	padding-bottom:10px;
+	
+	
 }
 .side-nav.fixed a {
 	height:50px;
 	line-height:52px;
+	font-size:16px;
 }
+
+.side-nav .active {
+	background-color:#4fb9df!important;
+}
+
 
 .side-nav .active a{
 
-	color:#00bcd4;
+	color:white;
 }
 
 nav .button-collapse {
@@ -68,12 +93,21 @@ nav .button-collapse {
     left: 10px;
 }
 
-
+li.logo {
+	text-align:center;
+	font-size:20px;
+	background-color:gray;
+	color:white;
+	width:200px;
+	height:60px;
+	margin:20px;
+	border-radius:10px;
+	
+}
 .username {
-	font-size:18px;	
-	line-height: 22px!important;
-    margin: 20px 0;
-	color: #444; 
+	font-size:20px;	
+	line-height: 35px!important;
+    margin: 10px 0;
 	text-align:center;
 	cursor:default;
 }
@@ -90,11 +124,27 @@ nav .button-collapse {
 
 
 .divider1 {
-	margin:0 15px 10px 15px;	
+	margin:0 20px 20px 20px;	
 }
 
 .divider2 {
 	margin:10px 15px 10px 15px;	
+}
+
+
+
+.par .card{
+	border-left:6px solid #6fcd95;
+}
+
+.par .card-body {
+	padding: 0 5px 0 15px;
+}
+.par .card-text{
+	padding: 0;
+}
+.par p{
+	line-height:75px;
 }
 
 
@@ -103,12 +153,9 @@ nav .button-collapse {
 	text-align:center;
 }
 
-.card-title {
-	background-color: #388E3C;
-}
+
 .card-content {
-	background-color: #4CAF50; 
-	color: white; 
+
 	padding:0!important;
 }
 
@@ -118,10 +165,7 @@ nav .button-collapse {
     margin-top: 12px;
 }
 
-.card-content p {
-    font-size: 16px;
-	
-}
+
 .card-body {
 	display:inline-flex;
 	justify-content:space-between;
@@ -131,9 +175,25 @@ nav .button-collapse {
 .card-text {
 	text-align:left;
 	padding:10px;
+	font-size:20px;
+	color:#333333;
 }
-.card-text p {
-	font-size:20px
+.card-text .card-year-number {
+	font-size:24px;
+	padding-right:5px;
+	font-weight:bold;
+}
+.card-content .for-img {
+	width:85px!important;
+	height:85px;
+	border:3px solid #6fcd95;
+	border-radius:100px;
+	margin-top:15px;
+}
+.card-content img {
+	width:50px!important;
+	height:50px;
+	margin:10px;
 }
 
 .fab-tip {
@@ -200,10 +260,12 @@ max-width:200px;
 }
 
 footer {
+	position: relative;
 	padding-top:20px;
 	padding-bottom:20px;
 	width:100%;
 	color:white;
+	z-index:1001;
 }
 .rotate-180 {
     -webkit-transform: rotate(180deg);
@@ -248,10 +310,16 @@ footer {
 
 @media only screen and (max-width: 992px) {
   main {
-    padding-left: 0;
+    margin-left: 0;
 	
   }
+	nav {
+		height:60px;
+	}
 
+	.nav-wrapper span {
+		line-height:60px;
+	}
   .side-nav.fixed {    
 	top:0;
 	height:100%;
@@ -269,6 +337,10 @@ footer {
 	.modal {
 		width:400px;
 	}
+	footer {
+	
+	z-index:0;
+}
 }
 
 @media only screen and (max-width: 600px) {

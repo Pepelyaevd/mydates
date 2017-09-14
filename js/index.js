@@ -47,15 +47,16 @@ function createAppPage () {
 	var container = $('body');
 	//header	
 	var header=$('<header>').appendTo(container);
-	var nav=$('<nav>').addClass('color').attr("role","navigation").appendTo(header);
+	var nav=$('<nav>').addClass('green').attr("role","navigation").appendTo(header);
 	var navDiv=$('<div>').addClass('nav-wrapper page').appendTo(nav);
-	$('<span>').text('MyDates.pro').appendTo(navDiv);
+	$('<span>').attr("id","pageHeader").appendTo(navDiv);
 	var navDivSpan=$('<a>').addClass('button-collapse').attr("data-activates","slide-out").attr("href","#!").appendTo(navDiv);
 	$('<i>').addClass('material-icons').text('menu').appendTo(navDivSpan);
 	//page
 	var page = $('<div>').addClass('page').attr("id","page").appendTo(container);
 	var sideNav = $('<ul>').addClass('side-nav fixed').attr("id","slide-out").appendTo(page);
-		$('<li>').addClass('username').text(user.name).appendTo(sideNav);
+		$('<li>').addClass('logo').text("MyDates.pro").appendTo(sideNav);
+		$('<li>').addClass('username bluefont').text(user.name).appendTo(sideNav);
 		$('<li>').addClass('divider divider1').appendTo(sideNav);
 		var mainItem=$('<li>').attr("id","mainPageButton").appendTo(sideNav);
 			var mainItemA=$('<a>').addClass('waves-effect').attr("href","#!").text('Главная').appendTo(mainItem);
@@ -76,7 +77,7 @@ function createAppPage () {
 		//main
 		var main = $('<main>').attr("id","main").appendTo(page);
 	//footer
-	var footer=$('<footer>').addClass('color page-footer').appendTo(container);	
+	var footer=$('<footer>').addClass('green page-footer').appendTo(container);	
 		$('<div>').addClass('container').text("Mydates.pro @2017").appendTo(footer);
 	//open mainPage
 		$('.button-collapse').sideNav('hide');		
@@ -213,6 +214,7 @@ $(createAppPage);
 var currentPage;
 function clearPage () {
 	var container=$('#main');
+	$('#pageHeader').text("");
 	container.empty();
 }
 
@@ -231,40 +233,50 @@ function preLoader () {
 function createMainPage () {
 	clearPage();
 	var container=$('#main');
+	$('#pageHeader').text('Главная');	
+	
+	var row1=$('<div>').addClass('row').appendTo(container);
+	var col1=$('<div>').addClass('col s12 m12 par').appendTo(row1);
+		var card1=$('<div>').addClass('card').appendTo(col1);
+		var cardContent1=$('<div>').addClass('card-content').appendTo(card1);
+		
+		var cardBody1=$('<div>').addClass('card-body').appendTo(cardContent1);
+				var cardText1=$('<div>').addClass('card-text').appendTo(cardBody1);
+					$('<p>').addClass('bluefont').text("В ближайшее время нет праздников").appendTo(cardText1);
+				var cardimg1=$('<div>').appendTo(cardBody1);					
+					$('<img>').attr("src",'icons/sad.png').appendTo(cardimg1);
+			
+	
 	var row=$('<div>').addClass('row').appendTo(container);
 	
-
 	function createCard (container) {
 		var col=$('<div>').addClass('col s12 m6').appendTo(container);
 		var card=$('<div>').addClass('card').appendTo(col);
 		var cardContent=$('<div>').addClass('card-content').appendTo(card);
-			$('<p>').addClass('card-title').text("Сегодня").appendTo(cardContent);
+			
 			var cardBody=$('<div>').addClass('card-body').appendTo(cardContent);
 				var cardText=$('<div>').addClass('card-text').appendTo(cardBody);
-					$('<p>').text("Иван Иванович Иванов").appendTo(cardText);
-					$('<p>').text("34 года").appendTo(cardText);	
-				var cardimg=$('<div>').appendTo(cardBody);
-					function randomNumber(m, n) {
-						  m = parseInt(m);
-						  n = parseInt(n);
-						  return Math.floor( Math.random() * (n - m + 1) ) + m;
-					}
-					var img = "icons/" + randomNumber(1, 8) + ".png";
-					$('<img>').addClass('responsive-img').attr("src",img).appendTo(cardimg);		
+					$('<p>').addClass('bluefont').text("Иван Иванович Иванов").appendTo(cardText);
+					$('<p>').addClass('card-day').text("Сегодня").appendTo(cardText);
+					var years=$('<p>').appendTo(cardText);	
+						$('<span>').addClass('card-year-number greenfont').text("22").appendTo(years);
+						$('<span>').addClass('card-year').text("года").appendTo(years);
+						
+				var cardimg=$('<div>').addClass('for-img').appendTo(cardBody);					
+					$('<img>').attr("src",'icons/birthday-cake-piece.png').appendTo(cardimg);		
 	}
 	
 	createCard(row);
 	createCard(row);
 	createCard(row);
 	createCard(row);
-	createCard(row);
-	createCard(row);
+
 }
 function createTablePage () {
 	clearPage();
 	var container=$('#main');
 	
-	$('<h1>').addClass('header').text("Все даты").appendTo(container);
+	$('#pageHeader').text("Все даты");
 	var table=$('<table>').appendTo(container);
 	var thead=$('<thead>').appendTo(table);
 	var theadtr=$('<tr>').appendTo(thead);
@@ -358,8 +370,8 @@ function createTablePage () {
 }
 function createNotifyPage () {
 	clearPage();
-	var container=$('#main');
-	$('<h1>').addClass('header').text("Уведомления").appendTo(container);
+	$('#pageHeader').text("Уведомления");
+	var container=$('#main');	
 	var undercontainer=$('<div>').addClass('undermain').appendTo(container);	
 
 	$('<h2>').text("E-mail").appendTo(undercontainer);
@@ -396,8 +408,8 @@ function createNotifyPage () {
 function createSettingsPage () {
 	
 		clearPage();
-		var container=$('#main');
-		$('<h1>').addClass('header').text("Настройки").appendTo(container);
+		$('#pageHeader').text("Настройки");
+		var container=$('#main');		
 		var collection=$('<ul>').addClass('collection').appendTo(container);
 		var lineName=$('<li>').addClass('collection-item line row').appendTo(collection);
 			$('<div>').addClass('col s5 grey-text darken-1').text("Имя").appendTo(lineName);
