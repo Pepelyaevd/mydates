@@ -277,17 +277,18 @@ function createTablePage () {
 	var container=$('#main');
 	
 	$('#pageHeader').text("Все даты");
-	var table=$('<table>').addClass('striped').appendTo(container);
+	var table=$('<table>').appendTo(container);
 	var thead=$('<thead>').appendTo(table);
 	var theadtr=$('<tr>').appendTo(thead);
 	$('<td>').text('Имя').appendTo(theadtr);
 	$('<td>').text('Тип').appendTo(theadtr);
 	$('<td>').text('Дата').appendTo(theadtr);
+	$('<td>').appendTo(theadtr);
 	var tbody=$('<tbody>').appendTo(table);
 	
 	$.each(allDates, function(){
 		var tbodytr=$('<tr>').addClass('table-row-id').attr("data-id",this.id).appendTo(tbody);
-		$('<td>').text(this.name).appendTo(tbodytr);
+		$('<td>').text(this.name).addClass('bluefont table-name').appendTo(tbodytr);
 		$('<td>').text(this.type).appendTo(tbodytr);
 		$('<td>').text(this.day+"."+this.month+"."+this.year).appendTo(tbodytr);
 		var tableEditIcon=$('<td>').addClass('tableEdit').attr("href","#tableRowModal").appendTo(tbodytr);

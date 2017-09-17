@@ -5,7 +5,7 @@
 
 html {
 	height:100%;
-	font-family: Exo;
+	font-family: Exo!important;
 }
 body {
 	margin:0;
@@ -208,6 +208,39 @@ li.logo {
   width: auto;
 }
 
+table {
+	box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);
+    margin: 10px;
+	width: -webkit-fill-available;
+	font-size:16px;
+}
+
+
+table.striped>tbody>tr:nth-child(odd) {
+    background-color: #f9f9f9;
+}
+
+table thead tr {
+	background-color: #4fb9df;
+	color:white;
+	font-weight:bold;
+	
+}
+table td {
+	padding: 15px 10px;
+}
+.tableEdit {
+	cursor:pointer;
+	width: 40px;
+	color: grey;
+}
+.tableEdit:hover {
+	color:#4fb9df;
+}
+table .table-name {
+	font-size:18px;
+}
+
 
 .undermain {
 	padding-left: 7%;
@@ -242,23 +275,28 @@ max-width:200px;
 }
 .collection {
 	border:0 ;
-	margin: 40px 5px 10px 5px;
+	margin: 30px 10px 10px 10px;
+	font-size: 18px;
 }
 
 .collection-item {
 	padding:10px 0!important;
-	line-height:24px!important;
+	line-height:30px!important;
 	border-bottom:0!important;
 }
 .collection-item .col.s7 {
 	display:inline-flex;
-	font-size: 15px;
+	width: auto;
 	cursor:pointer;
 }
 .collection-item .col.s7 i {
-	margin-left: 5px;
+	margin: 3px 7px;
     font-size: 20px;
 	line-height: 24px;
+}
+
+.collection-item .col.s7 i:hover {
+	color:#4fb9df;
 }
 
 footer {
@@ -306,9 +344,7 @@ footer {
 }
 
 
-.tableEdit {
-	cursor:pointer;
-}
+
 
 @media only screen and (max-width: 992px) {
   main {
