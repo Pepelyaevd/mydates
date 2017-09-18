@@ -54,7 +54,7 @@ cursor:default;
 }
 	
 header {
-	margin-bottom:5px;
+
 	font-size:24px;	
 }
 nav {
@@ -74,6 +74,7 @@ nav .button-collapse i {
     left: auto;
 	font-weight:normal;
 	width: 280px;
+	position: absolute;
 	
 }
 .side-nav.fixed a {
@@ -102,7 +103,6 @@ li.logo {
 	font-size:20px;
 	background-color:gray;
 	color:white;
-	width:200px;
 	height:60px;
 	margin: 20px 40px;
 	border-radius:10px;
@@ -216,7 +216,7 @@ table {
 }
 
 
-table.striped>tbody>tr:nth-child(odd) {
+table>tbody>tr:nth-child(odd) {
     background-color: #f9f9f9;
 }
 
@@ -335,10 +335,23 @@ footer {
 	
 	
 	
-.modal h4 {
-	font-size: 26px;
-    text-align: center;	
+
+
+.modal-header {
+	background-color:#6fcd95;
+	height: 80px;
+    color: white;
 }
+.modal h4 {
+	font-size:26px;
+    line-height: 80px;
+    padding-left: 20px;
+}
+
+.modal .modal-content {
+    padding: 10px;
+}
+
 .modal-content .row {
 	margin-bottom:0;
 }
@@ -347,10 +360,10 @@ footer {
 
 
 @media only screen and (max-width: 992px) {
-  main {
-    margin-left: 0;
+	main {
+		margin-left: 0;	
+	}
 	
-  }
 	nav {
 		height:60px;
 	}
@@ -358,27 +371,31 @@ footer {
 	.nav-wrapper span {
 		line-height:60px;
 	}
-  .side-nav.fixed {    
-	top:0;
-	height:100%;
-  }
-  .nav-wrapper span {
-	margin-left:60px;
-  }
-  
-  .drag-target {
-	display:block;
+	
+	.side-nav.fixed {    
+		top:0;
+		height:100%;
+		width:240px;
 	}
-.collection-item.row .col {
-	padding:0!important;
+	.nav-wrapper span {
+		margin-left:60px;
+	}
+	table {
+		margin: 0;	
+	}
+  
+	.drag-target {
+		display:block;
+	}
+	.collection-item.row .col {
+		padding:0!important;
 	}  
 	.modal {
 		width:400px;
 	}
 	footer {
-	
-	z-index:0;
-}
+		z-index:0;
+	}
 }
 
 @media only screen and (max-width: 600px) {

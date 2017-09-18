@@ -317,8 +317,11 @@ function createTablePage () {
 				
 				$('#tableRowModal').remove();
 				var tableModalDiv=$('<div>').addClass('modal').attr("id","tableRowModal").appendTo(container);
+				
+				var modalDivHeader=$('<div>').addClass('modal-header').appendTo(tableModalDiv);
+						$('<h4>').text("Изменить событие").appendTo(modalDivHeader);
 				var modalDivcontent=$('<div>').addClass('modal-content').appendTo(tableModalDiv);
-					$('<h4>').text("Изменить событие").appendTo(modalDivcontent);
+			
 				
 				var modalDivNameInputRow=$('<div>').addClass('row').appendTo(modalDivcontent);		
 					var modalDivNameInput=$('<div>').addClass('input-field col s12').appendTo(modalDivNameInputRow);							
@@ -445,14 +448,18 @@ function createSettingsPage () {
 		//events
 		lineNameDiv.click(function(){
 				var nameModalDiv=$('<div>').addClass('modal').attr("id","nameModal").appendTo(container);
+					var modalDivHeader=$('<div>').addClass('modal-header').appendTo(nameModalDiv);
+						$('<h4>').text("Изменить имя").appendTo(modalDivHeader);
 					var modalDivcontent=$('<div>').addClass('modal-content').appendTo(nameModalDiv);
-						$('<h4>').text("Изменить имя").appendTo(modalDivcontent);
-						var modalDivcontentInput=$('<div>').addClass('input-field').appendTo(modalDivcontent);
-						var modalDivcontentValue=$('<input>').addClass('input').attr("type","text").attr("value",user.name).appendTo(modalDivcontent);
+						var modalDivRow=$('<div>').addClass('row').appendTo(modalDivcontent);
+						var modalDivcontentInput=$('<div>').addClass('input-field col s12').appendTo(modalDivRow);
+						var modalDivcontentValue=$('<input>').addClass('input').attr("type","text").attr("value",user.name).appendTo(modalDivcontentInput);
 					var modalDivFooter=$('<div>').addClass('modal-footer').appendTo(nameModalDiv);
 						var modalno=$('<a>').addClass("modal-action modal-close waves-effect waves-green btn-flat").text("Cancel").appendTo(modalDivFooter);
 						var modalyes=$('<a>').addClass("modal-action modal-close waves-effect waves-green btn-flat").text("OK").appendTo(modalDivFooter);
-						
+					
+					
+					
 					
 				modalyes.click(function(){
 						user.name=modalDivcontentValue.val();//toserver 
@@ -465,10 +472,12 @@ function createSettingsPage () {
 		
 		lineCityDiv.click(function(){
 						var cityModalDiv=$('<div>').addClass('modal').attr("id","cityModal").appendTo(container);
+							var modalDivHeader=$('<div>').addClass('modal-header').appendTo(cityModalDiv);
+								$('<h4>').text("Изменить город").appendTo(modalDivHeader);
 						var modalDivcontent=$('<div>').addClass('modal-content').appendTo(cityModalDiv);
-							$('<h4>').text("Изменить город").appendTo(modalDivcontent);
-							var modalDivcontentInput=$('<div>').addClass('input-field').appendTo(modalDivcontent);
-							var modalDivcontentValue=$('<input>').addClass('input').attr("type","text").attr("value",user.city).appendTo(modalDivcontent);
+							var modalDivRow=$('<div>').addClass('row').appendTo(modalDivcontent);
+							var modalDivcontentInput=$('<div>').addClass('input-field col s12').appendTo(modalDivRow);
+							var modalDivcontentValue=$('<input>').addClass('input').attr("type","text").attr("value",user.city).appendTo(modalDivcontentInput);
 						var modalDivFooter=$('<div>').addClass('modal-footer').appendTo(cityModalDiv);
 							var modalno=$('<a>').addClass("modal-action modal-close waves-effect waves-green btn-flat").text("Cancel").appendTo(modalDivFooter);
 							var modalyes=$('<a>').addClass("modal-action modal-close waves-effect waves-green btn-flat").text("OK").appendTo(modalDivFooter);
@@ -483,10 +492,12 @@ function createSettingsPage () {
 		
 		lineMailDiv.click(function(){
 						var mailModalDiv=$('<div>').addClass('modal').attr("id","mailModal").appendTo(container);
+							var modalDivHeader=$('<div>').addClass('modal-header').appendTo(mailModalDiv);
+							$('<h4>').text("Изменить E-mail").appendTo(modalDivHeader);
 						var modalDivcontent=$('<div>').addClass('modal-content').appendTo(mailModalDiv);
-							$('<h4>').text("Изменить E-mail").appendTo(modalDivcontent);
-							var modalDivcontentInput=$('<div>').addClass('input-field').appendTo(modalDivcontent);
-							var modalDivcontentValue=$('<input>').addClass('input validate').attr("type","email").attr("value",user.mail).appendTo(modalDivcontent);
+							var modalDivRow=$('<div>').addClass('row').appendTo(modalDivcontent);
+							var modalDivcontentInput=$('<div>').addClass('input-field col s12').appendTo(modalDivRow);
+							var modalDivcontentValue=$('<input>').addClass('input validate').attr("type","email").attr("value",user.mail).appendTo(modalDivcontentInput);
 						var modalDivFooter=$('<div>').addClass('modal-footer').appendTo(mailModalDiv);
 							var modalno=$('<a>').addClass("modal-action modal-close waves-effect waves-green btn-flat").text("Cancel").appendTo(modalDivFooter);
 							var modalyes=$('<a>').addClass("modal-action modal-close waves-effect waves-green btn-flat").text("OK").appendTo(modalDivFooter);
@@ -503,9 +514,11 @@ function createSettingsPage () {
 		
 		lineTelDiv.click(function(){
 						var mailModalDiv=$('<div>').addClass('modal').attr("id","telModal").appendTo(container);
+							var modalDivHeader=$('<div>').addClass('modal-header').appendTo(mailModalDiv);
+								$('<h4>').text("Изменить телефон").appendTo(modalDivHeader);
 						var modalDivcontent=$('<div>').addClass('modal-content').appendTo(mailModalDiv);
-							$('<h4>').text("Изменить телефон").appendTo(modalDivcontent);
-							var modalDivcontentInput=$('<div>').addClass('input-field').appendTo(modalDivcontent);
+							var modalDivRow=$('<div>').addClass('row').appendTo(modalDivcontent);
+							var modalDivcontentInput=$('<div>').addClass('input-field col s12').appendTo(modalDivRow);
 							var modalDivcontentValue=$('<input>').addClass('input').attr("type","text").attr("value",user.tel).appendTo(modalDivcontent);
 						var modalDivFooter=$('<div>').addClass('modal-footer').appendTo(mailModalDiv);
 							var modalno=$('<a>').addClass("modal-action modal-close waves-effect waves-green btn-flat").text("Cancel").appendTo(modalDivFooter);
