@@ -347,26 +347,49 @@ function createTablePage () {
 						
 				var modalDivFooter=$('<div>').addClass('modal-footer').appendTo(tableModalDiv);
 					var modalno=$('<a>').addClass("modal-action modal-close waves-effect waves-green btn-flat").text("Cancel").appendTo(modalDivFooter);
-					var modalyes=$('<a>').addClass("modal-action modal-close waves-effect waves-green btn-flat").text("OK").appendTo(modalDivFooter);
+					var modalyes=$('<a>').addClass("modal-action waves-effect waves-green btn-flat").text("OK").appendTo(modalDivFooter);
 					
 			modalyes.click(function(){
-				var changedRow={
-					id:tableObjectId,
-					name:modalDivNameValue.val(),
-					type:modalDivTypeValue.val(),
-					day:modalDivDayValue.val(),
-					month:modalDivMonthValue.val(),
-					year:modalDivYearValue.val()
-				};
-				//update row
-				var a=$('[data-id='+tableObjectId+']');
-				a.children('td').eq(0).text(changedRow.name);
-				a.children('td').eq(1).text(changedRow.type);
-				a.children('td').eq(2).text(changedRow.day+"."+changedRow.month+"."+changedRow.year);	
+				//validate
+								
+				if (modalDivNameValue.val()<1) {
+					Materialize.toast('Введите корректное имя', 3000);
+				}	
+				else if (modalDivTypeValue.val()<1) {
+					Materialize.toast('Введите корректный тип', 3000);
+				}
+				else if (modalDivDayValue.val()<1 ||modalDivDayValue.val()>31) {
+					Materialize.toast('Введите корректную дату', 3000);
+				}
+				else if (modalDivMonthValue.val()<1 ||modalDivMonthValue.val()>12) {
+					Materialize.toast('Введите корректный месяц', 3000);
+				}
+				else if (modalDivYearValue.val()<1900 ||modalDivYearValue.val()>2018) {
+					Materialize.toast('Введите корректный год', 3000);
+				}
 				
-				allDates[indexOfTableObject]=changedRow;//toserver 
-				Materialize.toast('Изменения сохранены.', 300000)
-					});
+				else {
+					var changedRow={
+						id:tableObjectId,
+						name:modalDivNameValue.val(),
+						type:modalDivTypeValue.val(),
+						day:modalDivDayValue.val(),
+						month:modalDivMonthValue.val(),
+						year:modalDivYearValue.val()
+					};
+					
+					//update row
+					var a=$('[data-id='+tableObjectId+']');
+					a.children('td').eq(0).text(changedRow.name);
+					a.children('td').eq(1).text(changedRow.type);
+					a.children('td').eq(2).text(changedRow.day+"."+changedRow.month+"."+changedRow.year);	
+					
+					allDates[indexOfTableObject]=changedRow;//toserver 
+					Materialize.toast('Изменения сохранены.', 3000)
+					$("#tableRowModal").closeModal();
+				}
+				return;
+				});
 		});
 	
 	$(".tableEdit").leanModal();
@@ -456,15 +479,23 @@ function createSettingsPage () {
 						var modalDivcontentValue=$('<input>').addClass('input').attr("type","text").attr("value",user.name).appendTo(modalDivcontentInput);
 					var modalDivFooter=$('<div>').addClass('modal-footer').appendTo(nameModalDiv);
 						var modalno=$('<a>').addClass("modal-action modal-close waves-effect waves-green btn-flat").text("Cancel").appendTo(modalDivFooter);
-						var modalyes=$('<a>').addClass("modal-action modal-close waves-effect waves-green btn-flat").text("OK").appendTo(modalDivFooter);
+						var modalyes=$('<a>').addClass("modal-action waves-effect waves-green btn-flat").text("OK").appendTo(modalDivFooter);
 					
 					
 					
 					
 				modalyes.click(function(){
+					//validate								
+					if (modalDivcontentValue.val()<1) {
+						Materialize.toast('Введите корректное имя', 3000);
+					}
+					else {
 						user.name=modalDivcontentValue.val();//toserver 
 						lineNameValue.text(user.name);
-					Materialize.toast('Изменения сохранены.', 3000)
+						$('.username').text(user.name);
+						Materialize.toast('Изменения сохранены.', 3000)
+						$("#nameModal").closeModal();
+					}
 				});
 				
 				
@@ -480,13 +511,19 @@ function createSettingsPage () {
 							var modalDivcontentValue=$('<input>').addClass('input').attr("type","text").attr("value",user.city).appendTo(modalDivcontentInput);
 						var modalDivFooter=$('<div>').addClass('modal-footer').appendTo(cityModalDiv);
 							var modalno=$('<a>').addClass("modal-action modal-close waves-effect waves-green btn-flat").text("Cancel").appendTo(modalDivFooter);
-							var modalyes=$('<a>').addClass("modal-action modal-close waves-effect waves-green btn-flat").text("OK").appendTo(modalDivFooter);
+							var modalyes=$('<a>').addClass("modal-action waves-effect waves-green btn-flat").text("OK").appendTo(modalDivFooter);
 					
 					modalyes.click(function(){
+						//validate								
+						if (modalDivcontentValue.val()<1) {
+							Materialize.toast('Введите корректный город', 3000);
+						}
+						else{
 						user.city=modalDivcontentValue.val();//toserver 
-						lineCityValue.text(user.city);
-						
+						lineCityValue.text(user.city);						
 						Materialize.toast('Изменения сохранены.', 3000)
+						$("#cityModal").closeModal();
+						}
 					});
 		});
 		
@@ -500,13 +537,24 @@ function createSettingsPage () {
 							var modalDivcontentValue=$('<input>').addClass('input validate').attr("type","email").attr("value",user.mail).appendTo(modalDivcontentInput);
 						var modalDivFooter=$('<div>').addClass('modal-footer').appendTo(mailModalDiv);
 							var modalno=$('<a>').addClass("modal-action modal-close waves-effect waves-green btn-flat").text("Cancel").appendTo(modalDivFooter);
-							var modalyes=$('<a>').addClass("modal-action modal-close waves-effect waves-green btn-flat").text("OK").appendTo(modalDivFooter);
+							var modalyes=$('<a>').addClass("modal-action waves-effect waves-green btn-flat").text("OK").appendTo(modalDivFooter);
 					
 					modalyes.click(function(){
-						user.mail=modalDivcontentValue.val();//toserver 
-						lineMailValue.text(user.mail);
-						
-						Materialize.toast('Изменения сохранены.', 3000)
+						function isValidEmailAddress(emailAddress) {
+							var pattern = new RegExp(/^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/i);
+							return pattern.test(emailAddress);
+						}
+						var emailStr=modalDivcontentValue.val();
+						//validate								
+						if (!isValidEmailAddress(emailStr)) {
+							Materialize.toast('Введите корректный E-mail', 3000);
+						}
+						else {
+							user.mail=modalDivcontentValue.val();//toserver 
+							lineMailValue.text(user.mail);						
+							Materialize.toast('Изменения сохранены.', 3000)
+							$("#mailModal").closeModal();
+						}
 					});	
 							
 				
@@ -522,13 +570,19 @@ function createSettingsPage () {
 							var modalDivcontentValue=$('<input>').addClass('input').attr("type","text").attr("value",user.tel).appendTo(modalDivcontent);
 						var modalDivFooter=$('<div>').addClass('modal-footer').appendTo(mailModalDiv);
 							var modalno=$('<a>').addClass("modal-action modal-close waves-effect waves-green btn-flat").text("Cancel").appendTo(modalDivFooter);
-							var modalyes=$('<a>').addClass("modal-action modal-close waves-effect waves-green btn-flat").text("OK").appendTo(modalDivFooter);
+							var modalyes=$('<a>').addClass("modal-action waves-effect waves-green btn-flat").text("OK").appendTo(modalDivFooter);
 					
 					modalyes.click(function(){
-						user.tel=modalDivcontentValue.val();//toserver 
-						lineTelValue.text(user.tel);
-						
-						Materialize.toast('Изменения сохранены.', 3000)
+						//validate								
+						if (modalDivcontentValue.val()<1) {
+							Materialize.toast('Введите корректный телефон', 3000);
+						}
+						else{
+							user.tel=modalDivcontentValue.val();//toserver 
+							lineTelValue.text(user.tel);						
+							Materialize.toast('Изменения сохранены.', 3000)
+							$("#telModal").closeModal();
+						}
 					});	
 							
 				
