@@ -9,6 +9,7 @@ html {
 }
 body {
 	margin:0;
+	
 }
 
 main {
@@ -198,6 +199,52 @@ li.logo {
 	margin:10px;
 }
 
+.calendar {
+	
+	
+}
+.ui-datepicker-calendar {
+	margin:0;
+	text-align:center;
+}
+.ui-datepicker-header {
+	background-color:#4fb9df;
+	height:60px;
+	color:white;
+	line-height: 60px;
+    font-size: 18px;
+}
+.ui-datepicker-month{
+	margin-left: 25px;
+}
+.ui-datepicker-calendar thead tr{
+	background-color: inherit;
+    color: #4fb9df; 
+    font-weight: bold;
+}
+.ui-datepicker-calendar th, .ui-datepicker-calendar td{
+	text-align: center;
+}
+.ui-datepicker-calendar td a{
+	color:#333333;
+}
+
+.ui-datepicker-prev span, .ui-datepicker-next span {
+	font-family: 'Material Icons';
+	font-size:30px;
+	cursor:pointer;
+	float:right;
+	color:white;
+	margin-right: 10px;
+}	
+
+.ui-datepicker-calendar  .ui-datepicker-current-day {
+	background-color:#4fb9df;
+	border-radius: 20px; 
+	padding:0;
+	
+}
+
 .fab-tip {
   position: fixed;
   right: 85px;
@@ -354,6 +401,10 @@ footer {
 
 .modal-content .row {
 	margin-bottom:0;
+}
+
+.lean-overlay {
+	top: 0;
 }
 
 

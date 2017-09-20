@@ -270,7 +270,32 @@ function createMainPage () {
 	createCard(row);
 	createCard(row);
 	createCard(row);
-
+	//calendar
+	var caldiv=$('<div>').addClass('row').appendTo(container);
+	var cal=$('<div>').attr("id","datepicker").addClass('calendar col s12 m12').appendTo(caldiv);
+	 jQuery(function ($) {
+        $.datepicker.regional['ru'] = {
+            closeText: 'Закрыть',
+            prevText: 'keyboard_arrow_up',
+            nextText: 'keyboard_arrow_down',
+            currentText: 'Сегодня',
+            monthNames: ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь',
+            'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'],
+            
+            
+            dayNamesMin: ['Вс', 'Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб'],
+            dateFormat: 'dd.mm.yy',
+            firstDay: 1,
+            
+        };
+        $.datepicker.setDefaults($.datepicker.regional['ru']);
+    });
+	cal.datepicker();
+   
+   
+	
+	
+	
 }
 function createTablePage () {
 	clearPage();
