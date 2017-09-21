@@ -483,5 +483,8 @@ footer {
 
 	font-size:32px;
 	}
+	.all-dates thead{
+		display:none;
+	}
 	
   }

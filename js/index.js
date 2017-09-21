@@ -288,6 +288,10 @@ function createMainPage () {
             dayNamesMin: ['Вс', 'Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб'],
             dateFormat: 'dd.mm.yy',
             firstDay: 1,
+			onSelect: function (date) {
+				// Your CSS changes, just in case you still need them
+				$(this).addClass('ui-state-highlight');
+				}
             
         };
         $.datepicker.setDefaults($.datepicker.regional['ru']);
@@ -319,7 +323,7 @@ function createTablePage () {
 	var container=$('#main');
 	
 	$('#pageHeader').text("Все даты");
-	var table=$('<table>').appendTo(container);
+	var table=$('<table>').addClass('all-dates').appendTo(container);
 	var thead=$('<thead>').appendTo(table);
 	var theadtr=$('<tr>').appendTo(thead);
 	$('<td>').text('Имя').appendTo(theadtr);
