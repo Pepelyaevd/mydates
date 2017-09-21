@@ -271,8 +271,10 @@ function createMainPage () {
 	createCard(row);
 	createCard(row);
 	//calendar
-	var caldiv=$('<div>').addClass('row').appendTo(container);
-	var cal=$('<div>').attr("id","datepicker").addClass('calendar col s12 m12').appendTo(caldiv);
+	var caldivrow=$('<div>').addClass('row cal-div-row').appendTo(container);
+	var caldiv=$('<div>').addClass('col s12 m6').appendTo(caldivrow);
+	var caldivshadow=$('<div>').addClass('shadow').appendTo(caldiv);
+	var cal=$('<div>').attr("id","datepicker").addClass('calendar').appendTo(caldivshadow);
 	 jQuery(function ($) {
         $.datepicker.regional['ru'] = {
             closeText: 'Закрыть',
@@ -291,8 +293,23 @@ function createMainPage () {
         $.datepicker.setDefaults($.datepicker.regional['ru']);
     });
 	cal.datepicker();
-   
-   
+	
+	var calDates=$('<div>').addClass('cal-dates-div').appendTo(caldivshadow);
+	
+	function createCalendarCard (name,years) {
+		var calCard=$('<div>').addClass('cal-card').appendTo(calDates);
+		var calContent=$('<div>').addClass('cal-card-content').appendTo(calCard);
+		
+		var calBody=$('<div>').addClass('card-body').appendTo(calContent);
+				var calText=$('<div>').addClass('card-text-name').appendTo(calBody);
+					$('<p>').addClass('bluefont').text(name).appendTo(calText);
+					var yearsn=$('<p>').appendTo(calText);	
+						$('<span>').addClass('card-year-number greenfont').text(years).appendTo(yearsn);
+						$('<span>').addClass('card-year').text("года").appendTo(yearsn);
+	};
+	
+	createCalendarCard ("Иван",33);
+	createCalendarCard ("Иван Иванов",28);
 	
 	
 	

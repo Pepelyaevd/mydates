@@ -37,7 +37,7 @@ cursor:default;
 }
 
 .color {
-	background-color:#4fb9df!important;
+	background-color:#6fcd95!important;
 }
 
 .bluefont {
@@ -47,7 +47,7 @@ cursor:default;
 	color:#6fcd95!important;
 }
 .green {
-	background-color:#6fcd95!important;
+	background-color:#4fb9df!important;
 }
 .centered {
 	text-align:center;
@@ -85,7 +85,7 @@ nav .button-collapse i {
 }
 
 .side-nav .active {
-	background-color:#4fb9df!important;
+	background-color:#6fcd95!important;
 }
 
 
@@ -206,9 +206,10 @@ li.logo {
 .ui-datepicker-calendar {
 	margin:0;
 	text-align:center;
+	box-shadow:none;
 }
 .ui-datepicker-header {
-	background-color:#4fb9df;
+	background-color:#6fcd95;
 	height:60px;
 	color:white;
 	line-height: 60px;
@@ -219,7 +220,7 @@ li.logo {
 }
 .ui-datepicker-calendar thead tr{
 	background-color: inherit;
-    color: #4fb9df; 
+    color: #6fcd95; 
     font-weight: bold;
 }
 .ui-datepicker-calendar th, .ui-datepicker-calendar td{
@@ -239,10 +240,31 @@ li.logo {
 }	
 
 .ui-datepicker-calendar  .ui-datepicker-current-day {
-	background-color:#4fb9df;
+	background-color:#6fcd95;
 	border-radius: 20px; 
 	padding:0;
 	
+}
+
+.shadow {
+	box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);
+}
+.cal-card {
+	border-top: 1px solid lightgray;
+	border-left:6px solid #6fcd95;
+	line-height:18px;	
+}
+.cal-card p{
+	margin:10px;
+}
+
+.card-text-name {
+	font-size:18px;
+	line-height:18px;
+}
+.card-year-number {
+	font-size:20px;
+	padding-right:5px;
 }
 
 .fab-tip {
@@ -268,13 +290,13 @@ table>tbody>tr:nth-child(odd) {
 }
 
 table thead tr {
-	background-color: #4fb9df;
+	background-color: #6fcd95;
 	color:white;
 	font-weight:bold;
 	
 }
 table td {
-	padding: 15px 10px;
+	padding: 10px;
 }
 .tableEdit {
 	cursor:pointer;
