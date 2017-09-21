@@ -249,27 +249,28 @@ function createMainPage () {
 	
 	var row=$('<div>').addClass('row').appendTo(container);
 	
-	function createCard (container) {
-		var col=$('<div>').addClass('col s12 m6').appendTo(container);
+	function createCard (name,date,year) {
+		var col=$('<div>').addClass('col s12 m6').appendTo(row);
 		var card=$('<div>').addClass('card').appendTo(col);
 		var cardContent=$('<div>').addClass('card-content').appendTo(card);
 			
 			var cardBody=$('<div>').addClass('card-body').appendTo(cardContent);
 				var cardText=$('<div>').addClass('card-text').appendTo(cardBody);
-					$('<p>').addClass('bluefont').text("Иван Иванович Иванов").appendTo(cardText);
-					$('<p>').addClass('card-day').text("Сегодня").appendTo(cardText);
+					$('<p>').addClass('bluefont').text(name).appendTo(cardText);
+					$('<p>').addClass('card-day').text(date).appendTo(cardText);
 					var years=$('<p>').appendTo(cardText);	
-						$('<span>').addClass('card-year-number greenfont').text("22").appendTo(years);
-						$('<span>').addClass('card-year').text("года").appendTo(years);
+						$('<span>').addClass('card-year-number greenfont').text(year).appendTo(years);
+						$('<span>').addClass('card-year').text("лет").appendTo(years);
 						
 				var cardimg=$('<div>').addClass('for-img').appendTo(cardBody);					
 					$('<img>').attr("src",'icons/birthday-cake-piece.png').appendTo(cardimg);		
 	}
 	
-	createCard(row);
-	createCard(row);
-	createCard(row);
-	createCard(row);
+	createCard("Иван Иванович Иванов","Сегодня","25");
+	createCard("Дмитрий Анатольевич","Сегодня","9");
+	createCard("Гермиона","Сегодня","18");
+	createCard("Гуф","Завтра",100);
+	
 	//calendar
 	var caldivrow=$('<div>').addClass('row cal-div-row').appendTo(container);
 	var caldiv=$('<div>').addClass('col s12 m6').appendTo(caldivrow);

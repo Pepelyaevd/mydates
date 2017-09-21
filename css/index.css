@@ -222,6 +222,10 @@ li.logo {
 	background-color: inherit;
     color: #6fcd95; 
     font-weight: bold;
+	
+}
+.ui-datepicker-calendar thead {
+	border:0;
 }
 .ui-datepicker-calendar th, .ui-datepicker-calendar td{
 	text-align: center;
