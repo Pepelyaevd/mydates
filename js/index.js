@@ -11,30 +11,16 @@ var user={
 		
 		
 var allDates=[
-		{
-			id:1,
-			name:"Vasya Smirnov",
-			type:"День Рождения",
-			day:22,
-			month:12,
-			year:1955
-		},
-		{
-			id:2, 
-			name:"Alvin Eclair", 
-			type:"День Рождения", 
-			day:2, 
-			month:8, 
-			year:1993
-		},			
-			{id:3, name:"Vasya Smirnov", type:"День Рождения", day:27,month:12,year:1957},
-			{id:4, name:"Alvin Eclair", type:"День Рождения", day:3,month:10,year:1958},
-			{id:5, name:"Vasya Smirnov", type:"День Рождения", day:17,month:2,year:1959},
-			{id:6, name:"Alvin Eclair", type:"День Рождения", day:3,month:10,year:1958},
-			{id:712, name:"Vasya Smirnov", type:"День Рождения", day:17,month:2,year:1959},
-			{id:8, name:"Alvin Eclair", type:"День Рождения", day:3,month:10,year:1958},
-			{id:9, name:"Vasya Smirnov", type:"День Рождения", day:17,month:2,year:1959},
-			{id:610, name:"Alvin Eclair", type:"День Рождения", day:30,month:1,year:1980}];
+		{id:1,name:"Vasya Smirnov",type:"День Рождения",day:1,month:9,year:2000},
+		{id:2,name:"Каргин Харитон",type:"День Рождения", day:31,month:8,year:2017},			
+		{id:3,name:"Суворов Иосиф", type:"День Рождения", day:5,month:9,year:1957},
+		{id:4,name:"Шилов Никон", type:"День Рождения", day:2,month:10,year:1999},
+		{id:5,name:"Никаев Платон", type:"День Рождения", day:28,month:9,year:1987},
+		{id:6,name:"Розанов Павел", type:"День Рождения", day:23,month:9,year:1998},
+		{id:712,name:"Рогов Эрнст", type:"День Рождения", day:24,month:9,year:1994},
+		{id:8,name:"Якимычев Нестор", type:"День Рождения", day:28,month:9,year:1900},
+		{id:9,name:"Бичурин Эдуард", type:"День Рождения", day:28,month:9,year:1997},
+		{id:610,name:"Чернобровин Ипполит", type:"День Рождения", day:30,month:9,year:1980}];
 
 		
 		
@@ -231,26 +217,51 @@ function preLoader () {
 }
 
 function createMainPage () {
-	clearPage();
-	var container=$('#main');
-	$('#pageHeader').text('Главная');	
 	
-	var row1=$('<div>').addClass('row').appendTo(container);
-	var col1=$('<div>').addClass('col s12 m12 par').appendTo(row1);
-		var card1=$('<div>').addClass('card').appendTo(col1);
-		var cardContent1=$('<div>').addClass('card-content').appendTo(card1);
+	function checkNearDates () {
+		var currentDay = (new Date()).getDate();
+		var currentMonth = ((new Date()).getMonth())+1;
+		var currentYear = (new Date()).getFullYear();
 		
-		var cardBody1=$('<div>').addClass('card-body').appendTo(cardContent1);
-				var cardText1=$('<div>').addClass('card-text').appendTo(cardBody1);
-					$('<p>').addClass('bluefont').text("В ближайшее время нет праздников").appendTo(cardText1);
-				var cardimg1=$('<div>').appendTo(cardBody1);					
-					$('<img>').attr("src",'icons/sad.png').appendTo(cardimg1);
+		//сегодня
+		for (var i in allDates) 
+			{			
+				if (currentDay== allDates[i].day && currentMonth==allDates[i].month) {					
+					var numYears=currentYear - allDates[i].year;
+					createCard(allDates[i].name,"Сегодня",numYears);
+				}				
+			}	
+		//завтра
+		for (var i in allDates) 
+			{			
+				if (allDates[i].day-currentDay ==1 && currentMonth==allDates[i].month) {					
+					var numYears=currentYear - allDates[i].year;
+					createCard(allDates[i].name,"Завтра",numYears);
+					}				
+			}	
+		//послезавтра
+		for (var i in allDates) 
+			{			
+				if (allDates[i].day-currentDay ==2&& currentMonth==allDates[i].month) {					
+					var numYears=currentYear - allDates[i].year;
+					createCard(allDates[i].name,"Послезавтра",numYears);
+				}				
+			}			
+	}
+	
+	function createNoDaysDiv () {
+		var col1=$('<div>').addClass('col s12 m12 par').appendTo(noDaysDivRow);
+			var card1=$('<div>').addClass('card').appendTo(col1);
+			var cardContent1=$('<div>').addClass('card-content').appendTo(card1);
 			
-	
-	var row=$('<div>').addClass('row').appendTo(container);
-	
+			var cardBody1=$('<div>').addClass('card-body').appendTo(cardContent1);
+					var cardText1=$('<div>').addClass('card-text').appendTo(cardBody1);
+						$('<p>').addClass('bluefont').text("В ближайшее время нет праздников").appendTo(cardText1);
+					var cardimg1=$('<div>').appendTo(cardBody1);					
+						$('<img>').attr("src",'icons/sad.png').appendTo(cardimg1);
+	}	
 	function createCard (name,date,year) {
-		var col=$('<div>').addClass('col s12 m6').appendTo(row);
+		var col=$('<div>').addClass('col s12 m6').appendTo(nearDatesRow);
 		var card=$('<div>').addClass('card').appendTo(col);
 		var cardContent=$('<div>').addClass('card-content').appendTo(card);
 			
@@ -266,16 +277,67 @@ function createMainPage () {
 					$('<img>').attr("src",'icons/birthday-cake-piece.png').appendTo(cardimg);		
 	}
 	
-	createCard("Иван Иванович Иванов","Сегодня","25");
-	createCard("Дмитрий Анатольевич","Сегодня","9");
-	createCard("Гермиона","Сегодня","18");
-	createCard("Гуф","Завтра",100);
+	
+	clearPage();
+	var container=$('#main');
+	$('#pageHeader').text('Главная');	
+	
+	var noDaysDivRow=$('<div>').addClass('row').appendTo(container);
+	
+	
+	var nearDatesRow=$('<div>').addClass('row nearDatesRow').appendTo(container);
+	checkNearDates();
+	
+	// createNoDaysDiv() if no NearDates
+	if($('.nearDatesRow').children().length == 0){
+		createNoDaysDiv();
+	};
+
 	
 	//calendar
 	var caldivrow=$('<div>').addClass('row cal-div-row').appendTo(container);
 	var caldiv=$('<div>').addClass('col s12 m6').appendTo(caldivrow);
 	var caldivshadow=$('<div>').addClass('shadow').appendTo(caldiv);
 	var cal=$('<div>').attr("id","datepicker").addClass('calendar').appendTo(caldivshadow);
+	
+	function justDatesArray (alldates) {
+		var justDatesArray = [];
+		for (var i in allDates) 
+			{
+				var elem = alldates[i].day+'/'+alldates[i].month;
+				justDatesArray.push(elem);
+			}		
+		return justDatesArray;
+	};
+	var justDatesArr=justDatesArray(allDates);
+	
+	function highlightDates (date) {
+		var d=date.getDate()+ '/'  + (date.getMonth() + 1);	
+		if (justDatesArr.indexOf(d) != -1 ) {
+				return [true,'exist-date'];
+			}
+		else {
+			return [true,''];
+		}
+			
+	};
+	function showDatesOnDate (date) {
+		calDates.empty();
+		var currentYear = (new Date()).getFullYear();
+		var calDate = new Date(date);
+		for (var i in allDates) 
+			{							
+				var d=allDates[i].day+'/'+allDates[i].month+'/'+allDates[i].year;	
+				if (calDate.getDate()== allDates[i].day && (calDate.getMonth()+1)==allDates[i].month) {
+					var itemYear = allDates[i].year;	
+					var numYears=currentYear-itemYear;
+					createCalendarCard (allDates[i].name,numYears);
+				}
+			}		
+		
+	}
+	
+	
 	 jQuery(function ($) {
         $.datepicker.regional['ru'] = {
             closeText: 'Закрыть',
@@ -283,16 +345,13 @@ function createMainPage () {
             nextText: 'keyboard_arrow_down',
             currentText: 'Сегодня',
             monthNames: ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь',
-            'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'],
-            
+            'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'],            
             
             dayNamesMin: ['Вс', 'Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб'],
-            dateFormat: 'dd.mm.yy',
+            dateFormat: 'mm.dd.yy',
             firstDay: 1,
-			onSelect: function (date) {
-				// Your CSS changes, just in case you still need them
-				$(this).addClass('ui-state-highlight');
-				}
+			beforeShowDay: highlightDates,
+			onSelect: showDatesOnDate
             
         };
         $.datepicker.setDefaults($.datepicker.regional['ru']);
@@ -312,11 +371,6 @@ function createMainPage () {
 						$('<span>').addClass('card-year-number greenfont').text(years).appendTo(yearsn);
 						$('<span>').addClass('card-year').text("года").appendTo(yearsn);
 	};
-	
-	createCalendarCard ("Иван",33);
-	createCalendarCard ("Иван Иванов",28);
-	
-	
 	
 }
 function createTablePage () {
