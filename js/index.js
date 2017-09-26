@@ -11,7 +11,7 @@ var user={
 		
 		
 var allDates=[
-		{id:1,name:"Vasya Smirnov",type:"День Рождения1212",day:1,month:9,year:2000},
+		{id:1,name:"Vasya Smirnov",type:"День Рождения",day:1,month:9,year:2000},
 		{id:2,name:"Каргин Харитон",type:"День Рождения", day:31,month:8,year:2017},			
 		{id:3,name:"Суворов Иосиф", type:"День Рождения", day:5,month:9,year:1957},
 		{id:4,name:"Шилов Никон", type:"День Рождения", day:2,month:10,year:1999},
@@ -69,9 +69,9 @@ function createAppPage () {
 		
 		
 	//add new date
-	//var newDate=$('<div>').addClass('fixed-action-btn click-to-toggle add-new-date-div').attr("href","#addNewDateModal").appendTo(container);	
-	//	var newDateA=$('<a>').addClass('btn-floating btn-large green darken-1 waves-effect').appendTo(newDate);
-	//		$('<a>').addClass('large material-icons add-new-date-i').text('add').appendTo(newDateA);
+	var newDate=$('<div>').addClass('fixed-action-btn click-to-toggle add-new-date-div').attr("href","#addNewDateModal").appendTo(container);	
+		var newDateA=$('<a>').addClass('btn-floating btn-large green darken-1 waves-effect').appendTo(newDate);
+			$('<a>').addClass('large material-icons add-new-date-i').text('add').appendTo(newDateA);
 	
 	//open add new date
 	$(".add-new-date-div").click(function(){
@@ -455,7 +455,7 @@ function createTablePage () {
 	var tbody=$('<tbody>').appendTo(table);
 	
 	$.each(allDates, function(){
-		var tbodytr=$('<tr>').addClass('table-row-id').attr("data-id",this.id).appendTo(tbody);
+		var tbodytr=$('<tr>').attr("data-id",this.id).appendTo(tbody);
 		$('<td>').text(this.name).addClass('bluefont table-name').appendTo(tbodytr);
 		$('<td>').text(this.type).appendTo(tbodytr);
 		$('<td>').text(this.day+"."+this.month+"."+this.year).appendTo(tbodytr);

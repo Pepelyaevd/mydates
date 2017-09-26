@@ -499,5 +499,11 @@ footer {
 	.all-dates thead{
 		display:none;
 	}
+	.all-dates {
+		font-size: 14px;
+	}
+	.all-dates .table-name {
+		font-size: 16px;
+	}
 	
   }
