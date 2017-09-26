@@ -11,7 +11,7 @@ var user={
 		
 		
 var allDates=[
-		{id:1,name:"Vasya Smirnov",type:"День Рождения1",day:1,month:9,year:2000},
+		{id:1,name:"Vasya Smirnov",type:"День Рождения",day:1,month:9,year:2000},
 		{id:2,name:"Каргин Харитон",type:"День Рождения", day:31,month:8,year:2017},			
 		{id:3,name:"Суворов Иосиф", type:"День Рождения", day:5,month:9,year:1957},
 		{id:4,name:"Шилов Никон", type:"День Рождения", day:2,month:10,year:1999},
