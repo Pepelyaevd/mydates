@@ -245,7 +245,6 @@ li.logo {
 
 .ui-datepicker-calendar  .ui-datepicker-current-day{
 	background-color:#6fcd95; 
-	padding:0;
 	
 }
 
@@ -437,7 +436,13 @@ footer {
 	top: 0;
 }
 
-
+.add-new-date-div {
+	z-index:1002;
+}
+.add-new-date-i {
+	line-height:55px!important;
+	color:white;
+}
 
 
 @media only screen and (max-width: 992px) {

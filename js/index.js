@@ -11,7 +11,7 @@ var user={
 		
 		
 var allDates=[
-		{id:1,name:"Vasya Smirnov",type:"День Рождения",day:1,month:9,year:2000},
+		{id:1,name:"Vasya Smirnov",type:"День Рождения1",day:1,month:9,year:2000},
 		{id:2,name:"Каргин Харитон",type:"День Рождения", day:31,month:8,year:2017},			
 		{id:3,name:"Суворов Иосиф", type:"День Рождения", day:5,month:9,year:1957},
 		{id:4,name:"Шилов Никон", type:"День Рождения", day:2,month:10,year:1999},
@@ -65,6 +65,73 @@ function createAppPage () {
 	//footer
 	var footer=$('<footer>').addClass('green page-footer').appendTo(container);	
 		$('<div>').addClass('container').text("Mydates.pro @2017").appendTo(footer);
+		
+		
+		
+	//add new date
+	var newDate=$('<div>').addClass('fixed-action-btn click-to-toggle add-new-date-div').attr("href","#addNewDateModal").appendTo(container);	
+		var newDateA=$('<a>').addClass('btn-floating btn-large green darken-1 waves-effect').appendTo(newDate);
+			$('<a>').addClass('large material-icons add-new-date-i').text('add').appendTo(newDateA);
+	
+	//open add new date
+	$(".add-new-date-div").click(function(){
+		var newDateModalDiv=$('<div>').addClass('modal').attr("id","addNewDateModal").appendTo(container);
+					
+		var newDateModalDivHeader=$('<div>').addClass('modal-header').appendTo(newDateModalDiv);
+				$('<h4>').text("Добавить событие").appendTo(newDateModalDivHeader);
+		var newDateModalDivcontent=$('<div>').addClass('modal-content').appendTo(newDateModalDiv);
+		
+		var newDateModalDivNameInputRow=$('<div>').addClass('row').appendTo(newDateModalDivcontent);		
+			var newDateModalDivNameInput=$('<div>').addClass('input-field col s12').appendTo(newDateModalDivNameInputRow);
+			var newDateModalDivNameValue=$('<input>').addClass('input').attr("id","name_field").attr("tabindex","1").attr("type","text").appendTo(newDateModalDivNameInput);
+			$('<label>').addClass('input-label').attr("for","name_field").text("Имя").appendTo(newDateModalDivNameInput);	
+		var newDateModalDivTypeInputRow=$('<div>').addClass('row').appendTo(newDateModalDivcontent);			
+			var newDateModalDivTypeInput=$('<div>').addClass('input-field col s12').appendTo(newDateModalDivTypeInputRow);
+			var newDateModalDivTypeValue=$('<input>').addClass('input').attr("id","type_field").attr("type","text").attr("tabindex","2").val('День рождения').appendTo(newDateModalDivTypeInput);
+			$('<label>').addClass('input-label active').attr("for","type_field").text("Тип").appendTo(newDateModalDivTypeInput);
+					
+		var newDateModalDivDateInput=$('<div>').addClass('row').appendTo(newDateModalDivcontent);	
+			var newDateModalDivDayInput=$('<div>').addClass('input-field col s4').appendTo(newDateModalDivDateInput);
+			var newDateModalDivDayValue=$('<input>').addClass('input').attr({min:1,max:31}).attr("id","day_field").attr("tabindex","3").attr("type","number").appendTo(newDateModalDivDayInput);
+			$('<label>').addClass('input-label').attr("for","day_field").text("Число").appendTo(newDateModalDivDayInput);
+				
+			var newDateModalDivMonthInput=$('<div>').addClass('input-field col s4').appendTo(newDateModalDivDateInput);
+			var newDateModalDivMonthValue=$('<input>').addClass('input').attr({min:1,max:12}).attr("id","month_field").attr("type","number").appendTo(newDateModalDivMonthInput);
+			$('<label>').addClass('input-label').attr("for","month_field").text("Месяц").appendTo(newDateModalDivMonthInput);
+		
+			var newDateModalDivYearInput=$('<div>').addClass('input-field col s4').appendTo(newDateModalDivDateInput);
+			var newDateModalDivYearValue=$('<input>').addClass('input  year-input').attr({min:1920,max:2020}).attr("id","year_field").attr("type","number").appendTo(newDateModalDivYearInput);
+			$('<label>').addClass('input-label').attr("for","year_field").text("Год").appendTo(newDateModalDivYearInput);
+		var newDateModalDivNoYear=$('<div>').addClass('row').appendTo(newDateModalDivcontent);	
+			var newDateModalDivNoYearP=$('<p>').addClass('col s12').appendTo(newDateModalDivNoYear);
+			$('<input>').attr("type","checkbox").attr("id","newDateModalDivNoYearInput").appendTo(newDateModalDivNoYearP);	
+			$('<label>').attr("for","newDateModalDivNoYearInput").text('Я не знаю год').appendTo(newDateModalDivNoYearP);	
+			
+		//don't know year 
+			$("#newDateModalDivNoYearInput").change(function(){
+					if ($(".year-input").is(':disabled')) {
+						$(".year-input").removeAttr('disabled');
+					}
+					else {
+						$(".year-input").val('').attr('disabled','');
+					}
+				});
+		
+		
+		
+		var newDateModalDivFooter=$('<div>').addClass('modal-footer').appendTo(newDateModalDiv);
+			var modalno=$('<a>').addClass("modal-action modal-close waves-effect waves-green btn-flat").text("Cancel").appendTo(newDateModalDivFooter);
+			var modalyes=$('<a>').addClass("modal-action waves-effect waves-green btn-flat").attr("tabindex","4").attr("type","submit").text("OK").appendTo(newDateModalDivFooter);
+		
+		
+				 
+				
+			
+	});
+		$(".add-new-date-div").leanModal();
+		
+		
+		
 	//open mainPage
 		$('.button-collapse').sideNav('hide');		
 		$("#mainPageButton").addClass('active');
