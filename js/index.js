@@ -257,8 +257,23 @@ function createLandingPage () {
 	
 }	
 
-$(createAppPage);
-//$(createLandingPage);		
+function clearBody () {
+	$('body').empty;
+}
+
+//cookie checkNearDates
+
+
+
+document.cookie = "userName=Vasya";
+
+alert( document.cookie );
+
+
+
+$(clearBody);
+//$(createAppPage);
+$(createLandingPage);		
 		
 
 
