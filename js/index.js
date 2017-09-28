@@ -262,7 +262,7 @@ function clearBody () {
 }
 
 //cookie check
-document.cookie = "token= ";
+document.cookie = "token=12";
 
 function getcookie(a) {
 	var b = new RegExp(a+'=([^;]){1,}');
@@ -272,19 +272,21 @@ function getcookie(a) {
 	return c[1] ? c[1] : false;
 }
 
-var block = getcookie( "token" );
+var isToken = getcookie( "token" );
 
 
-if (block) {
+if (isToken) {
 	alert("yes");
+	$(clearBody);
+	$(createAppPage);
 }
 else {
 	alert("no");
+	$(clearBody);
+	$(createLandingPage);	
 }
 
-$(clearBody);
-//$(createAppPage);
-$(createLandingPage);		
+	
 		
 
 
