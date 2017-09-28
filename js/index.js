@@ -265,15 +265,15 @@ function clearBody () {
 
 
 
-document.cookie = "token";
+document.cookie = "token= ";
 
 alert( document.cookie );
 
 
 
 $(clearBody);
-$(createAppPage);
-//$(createLandingPage);		
+//$(createAppPage);
+$(createLandingPage);		
 		
 
 
