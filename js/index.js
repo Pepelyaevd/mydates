@@ -261,15 +261,26 @@ function clearBody () {
 	$('body').empty;
 }
 
-//cookie checkNearDates
-
-
-
+//cookie check
 document.cookie = "token= ";
 
-alert( document.cookie );
+function getcookie(a) {
+	var b = new RegExp(a+'=([^;]){1,}');
+	var c = b.exec(document.cookie);
+	if(c) c = c[0].split('=');
+	else return false;
+	return c[1] ? c[1] : false;
+}
+
+var block = getcookie( "token" );
 
 
+if (block) {
+	alert("yes");
+}
+else {
+	alert("no");
+}
 
 $(clearBody);
 //$(createAppPage);
